@@ -1,0 +1,40 @@
+{
+	"name": "jay-and-co",
+	"version": "1.0.0",
+	"description": "full stack scheduling application",
+	"private": true,
+	"proxy": "http://localhost:5000/",
+	"dependencies": {
+		"axios": "^0.21.1",
+		"bootstrap": "^4.5.0",
+		"dotenv": "^8.2.0",
+		"moment": "^2.27.0",
+		"react": "^16.6.3",
+		"react-bootstrap": "^1.2.2",
+		"react-dom": "^16.6.3",
+		"react-modal": "^3.11.2",
+		"react-moment": "^0.9.7",
+		"react-redux": "^7.2.0",
+		"react-reveal": "^1.2.2",
+		"react-router-dom": "^4.3.1",
+		"react-scripts": "^2.1.1",
+		"redux": "^4.0.5",
+		"redux-devtools-extension": "^2.13.8",
+		"redux-thunk": "^2.3.0"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	],
+	"devDependencies": {
+		"react-time-format": "0.0.5"
+	}
+}
