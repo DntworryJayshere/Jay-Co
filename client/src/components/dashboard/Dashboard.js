@@ -2,34 +2,27 @@ import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrentProfile, deleteAccount } from '../../actions/profile';
+import { deleteAccount } from '../../actions/profile';
+import Profile from '../profile/Profile';
 import { getBookings } from '../../actions/booking';
 import Bookings from '../bookings/Bookings';
 import Button from 'react-bootstrap/Button';
-import Moment from 'react-moment';
-import moment from 'moment';
 
 const Dashboard = ({
-	getCurrentProfile,
 	deleteAccount,
 	auth: { user },
-	profile: { profile },
+	profile: { profile, loading },
 	getBookings,
 	booking: { bookings },
 }) => {
-	useEffect(
-		() => {
-			getCurrentProfile();
-			getBookings();
-		},
-		[getCurrentProfile],
-		[getBookings]
-	);
+	useEffect(() => {
+		getBookings();
+	}, []);
 
 	return (
 		<Fragment>
 			<div className="container">
-				<div className="Account-information">
+				<div>
 					<h2>Account information</h2>
 					<p>
 						First Name: <span>{user && user.name}</span>
@@ -45,40 +38,11 @@ const Dashboard = ({
 					</Button>
 				</div>
 
-				{profile !== null ? (
+				{loading || profile !== null ? (
 					<Fragment>
-						<div className="Profile-information">
+						<div>
 							<h2>Profile information</h2>
-
-							<p>
-								Phone Number: <span>{profile && profile.phone}</span>
-							</p>
-							<p>
-								Date Of Birth:{' '}
-								<span>
-									{profile && (
-										<Moment format="MMM-D-YYYY">
-											{moment.utc(profile.dob)}
-										</Moment>
-									)}
-								</span>
-							</p>
-							<p>
-								Address:{' '}
-								<span>
-									{profile && profile.address1} {profile && profile.address2}
-								</span>
-							</p>
-							<p>
-								City: <span>{profile && profile.city}</span>
-							</p>
-							<p>
-								State: <span>{profile && profile.statee}</span>
-							</p>
-							<p>
-								Zip Code: <span>{profile && profile.zip}</span>
-							</p>
-
+							<Profile />
 							<Link to="/edit-profile">
 								<Button variant="success">Edit Profile</Button>
 							</Link>
@@ -86,11 +50,11 @@ const Dashboard = ({
 					</Fragment>
 				) : (
 					<Fragment>
-						<div className="Profile-information">
-							<h2 className="dbHeader">Profile information</h2>
+						<div>
+							<h2>Profile information</h2>
 							<p>You have not yet setup a profile, please add some info</p>
 							<Link to="/create-profile">
-								<Button variant="success dash-button">Create Profile</Button>
+								<Button variant="success">Create Profile</Button>
 							</Link>
 						</div>
 					</Fragment>
@@ -119,7 +83,6 @@ const Dashboard = ({
 };
 
 Dashboard.propTypes = {
-	getCurrentProfile: PropTypes.func.isRequired,
 	deleteAccount: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
 	profile: PropTypes.object.isRequired,
@@ -134,7 +97,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-	getCurrentProfile,
 	deleteAccount,
 	getBookings,
 })(Dashboard);
