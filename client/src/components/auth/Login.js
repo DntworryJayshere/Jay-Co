@@ -8,93 +8,81 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const Login = ({ login, isAuthenticated }) => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
+	const [formData, setFormData] = useState({
+		email: '',
+		password: '',
+	});
 
-  const { email, password } = formData;
+	const { email, password } = formData;
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+	const onChange = (e) =>
+		setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    login(email, password);
-  };
+	const onSubmit = (e) => {
+		e.preventDefault();
+		login(email, password);
+	};
 
-  if (isAuthenticated) {
-    return <Redirect to='/' />;
-  }
+	if (isAuthenticated) {
+		return <Redirect to="/" />;
+	}
 
-  return (
-    <>
-      <Fade>
-        <div id='LoginBody' className='container'>
-          <div className='row justify-content-center'>
-            <Fade top>
-              <div className='LoginForm col-md-6'>
-                <Form className='form' onSubmit={onSubmit}>
-                  <Form.Group controlId='FirstName'>
-                    <Form.Label>Email Address</Form.Label>
-                    <Form.Control
-                      type='email'
-                      placeholder='Email Address'
-                      name='email'
-                      value={email}
-                      onChange={onChange}
-                      required
-                    />
-                  </Form.Group>
+	return (
+		<Fade>
+			<div className="Login-form">
+				<Form onSubmit={onSubmit}>
+					<Form.Group controlId="FirstName">
+						<Form.Label>Email Address</Form.Label>
+						<Form.Control
+							type="email"
+							placeholder="Email Address"
+							name="email"
+							value={email}
+							onChange={onChange}
+							required
+						/>
+					</Form.Group>
 
-                  <Form.Group controlId='LastName'>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type='password'
-                      placeholder='Password'
-                      name='password'
-                      value={password}
-                      onChange={onChange}
-                      minLength='6'
-                    />
-                  </Form.Group>
-                  <div className='loginButtons'>
-                    <Button
-                      variant='dark'
-                      name='submit'
-                      type='submit'
-                      value='Login'
-                    >
-                      Submit
-                    </Button>
+					<Form.Group controlId="LastName">
+						<Form.Label>Password</Form.Label>
+						<Form.Control
+							type="password"
+							placeholder="Password"
+							name="password"
+							value={password}
+							onChange={onChange}
+							minLength="6"
+						/>
+					</Form.Group>
 
-                    <div className='rightButtons'>
-                      <Link to='/register'>
-                        <Button variant='outline-success'>Register</Button>
-                      </Link>
+					<div className="loginSubmitButton">
+						<Button variant="dark" name="submit" type="submit" value="Login">
+							Submit
+						</Button>
 
-                      <Link className='rightButton' to='/'>
-                        <Button variant='outline-danger'>Go Back</Button>
-                      </Link>
-                    </div>
-                  </div>
-                </Form>
-              </div>
-            </Fade>
-          </div>
-        </div>
-      </Fade>
-    </>
-  );
+						<div className="loginOtherButtons">
+							<Link to="/register">
+								<Button variant="outline-success">Register</Button>
+							</Link>
+
+							<Link className="loginOtherButtons" to="/">
+								<Button variant="outline-danger">Go Back</Button>
+							</Link>
+						</div>
+					</div>
+				</Form>
+			</div>
+		</Fade>
+	);
 };
 
 Login.propTypes = {
-  login: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
+	login: PropTypes.func.isRequired,
+	isAuthenticated: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
+	isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { login })(Login);
