@@ -7,7 +7,7 @@ function Footer() {
 				target="_blank"
 				rel="noopener noreferrer"
 				class="footer__icon"
-				href="https://github.com/DntworryJayshere/Jay-Co"
+				href="https://github.com/DntworryJayshere/jay-and-co"
 			>
 				<i className="fab fa-github" id="github"></i>
 			</a>

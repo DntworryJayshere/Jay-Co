@@ -28,14 +28,20 @@
 	--header-height: 3rem;
 }
 
-/* ===== CLASS CSS ===== */
-.body {
+/*===== LAYOUT =====*/
+.bodyContainer {
+	min-height: 80vh;
 	background-color: lightgray;
 }
-/*===== LAYOUT =====*/
-
+h2 {
+	text-align: center;
+	padding: 0.5rem 0;
+}
 /* ===== LANDING =====*/
-
+.landingContainer {
+	min-height: 80vh;
+	background-color: lightgray;
+}
 /* ===== NAVBAR =====*/
 
 /* ===== FOOTER ===== */

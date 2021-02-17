@@ -5,21 +5,18 @@ import BookingForm from './../bookings/BookingForm';
 class Appointment extends Component {
 	render() {
 		return (
-			<>
-				<Fade>
-					<div className="container">
-						<div className="text-center" id="AppointmentBody">
-							<h1 className="py-4">Schedule Appointment</h1>
-						</div>
+			<Fade>
+				<div className="bodyContainer">
+					<div className="justify-content-center"></div>
+					<h2>Schedule Appointment</h2>
 
-						<div className="Appointment-body">
-							<Fragment>
-								<BookingForm />
-							</Fragment>
-						</div>
+					<div className="Appointment-body">
+						<Fragment>
+							<BookingForm />
+						</Fragment>
 					</div>
-				</Fade>
-			</>
+				</div>
+			</Fade>
 		);
 	}
 }
