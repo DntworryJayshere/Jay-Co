@@ -24,23 +24,16 @@
 /*===== BASE =====*/
 
 /*===== VARIABLES CSS =====*/
-:root {
-	--header-height: 3rem;
-}
 
 /*===== LAYOUT =====*/
-.bodyContainer {
-	min-height: 80vh;
+.container {
+	min-height: 85vh;
 	background-color: lightgray;
 }
+
 h2 {
 	text-align: center;
-	padding: 0.5rem 0;
-}
-/* ===== LANDING =====*/
-.landingContainer {
-	min-height: 80vh;
-	background-color: lightgray;
+	padding-top: 2rem;
 }
 /* ===== NAVBAR =====*/
 
@@ -49,18 +42,15 @@ h2 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position: fixed;
-	width: 100%;
-	bottom: 0px;
-	padding: 2rem 0;
+	position: relative;
+	padding-top: 1rem;
+	bottom: 0;
+	left: 0;
+	width: auto;
 }
 #github {
-	padding: 4px;
-	font-size: 1.5rem;
+	padding: 1rem;
 	color: black;
-}
-#copyright {
-	padding-left: 1rem;
 }
 
 /*===== FORMS =====*/
@@ -92,18 +82,11 @@ h2 {
 	font-weight: var(--font-semi);
 	border-radius: 0.5rem;
 }
-.registerSubmitButton {
+.SubmitButtonBar {
 	display: flex;
 	justify-content: space-between;
 }
-.registerOtherButtons {
-	padding-left: 1rem;
-}
-.loginSubmitButton {
-	display: flex;
-	justify-content: space-between;
-}
-.loginOtherButtons {
+.OtherButtons {
 	padding-left: 1rem;
 }
 .bookingFormButton {

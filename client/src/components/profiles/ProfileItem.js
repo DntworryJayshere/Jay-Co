@@ -1,31 +1,52 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Moment from 'react-moment';
+import moment from 'moment';
 
 const ProfileItem = ({
-  profile: {
-    user: { _id, name, avatar },
-    address,
-    payment,
-  },
+	profile: {
+		user: { _id, name },
+		dob,
+		phone,
+		address1,
+		address2,
+		city,
+		statee,
+		zip,
+	},
 }) => {
-  return (
-    <div className='profile bg-light'>
-      <img src={avatar} alt='' className='round-img' />
-      <div>
-        <h2>{name}</h2>
-        <p>{address && <span> at {address}</span>}</p>
-        <p className='my-1'>{payment && <span>{payment}</span>}</p>
-        <Link to={`/profile/${_id}`} className='btn btn-primary'>
-          View Profile
-        </Link>
-      </div>
-    </div>
-  );
+	return (
+		<Fragment>
+			<p>
+				dob{' '}
+				<span>
+					<Moment format="MMM-D-YYYY">{moment.utc(dob)}</Moment>
+				</span>
+			</p>
+			<p>
+				phone <span>{phone}</span>
+			</p>
+			<p>
+				address1 <span>{address1}</span>
+			</p>
+			<p>
+				address2 <span>{address2}</span>
+			</p>
+			<p>
+				city <span>{city}</span>
+			</p>
+			<p>
+				state <span>{statee}</span>
+			</p>
+			<p>
+				zip <span>{zip}</span>
+			</p>
+		</Fragment>
+	);
 };
 
 ProfileItem.propTypes = {
-  profile: PropTypes.object.isRequired,
+	profile: PropTypes.object.isRequired,
 };
 
 export default ProfileItem;

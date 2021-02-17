@@ -100,19 +100,16 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 						/>
 					</Form.Group>
 
-					<Button
-						classname="registerSubmitButton"
-						name="submit"
-						variant="dark"
-						type="submit"
-					>
-						Submit
-					</Button>
+					<div className="SubmitButtonBar">
+						<Button variant="dark" name="submit" type="submit">
+							Submit
+						</Button>
 
-					<div classname="registerOtherButtons">
-						<Link to="/">
-							<Button variant="outline-danger">Go Back</Button>
-						</Link>
+						<div className="OtherButtons">
+							<Link className="OtherButtons" to="/Login">
+								<Button variant="outline-danger">Go Back</Button>
+							</Link>
+						</div>
 					</div>
 				</Form>
 			</div>

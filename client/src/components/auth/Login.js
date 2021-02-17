@@ -55,17 +55,22 @@ const Login = ({ login, isAuthenticated }) => {
 						/>
 					</Form.Group>
 
-					<div className="loginSubmitButton">
-						<Button variant="dark" name="submit" type="submit" value="Login">
+					<div className="SubmitButtonBar">
+						<Button
+							className="btn btn-success"
+							name="submit"
+							type="submit"
+							value="Login"
+						>
 							Submit
 						</Button>
 
-						<div className="loginOtherButtons">
+						<div className="OtherButtons">
 							<Link to="/register">
 								<Button variant="outline-success">Register</Button>
 							</Link>
 
-							<Link className="loginOtherButtons" to="/">
+							<Link className="OtherButtons" to="/">
 								<Button variant="outline-danger">Go Back</Button>
 							</Link>
 						</div>

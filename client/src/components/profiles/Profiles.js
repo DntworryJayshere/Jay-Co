@@ -6,39 +6,38 @@ import ProfileItem from './ProfileItem';
 import { getProfiles } from '../../actions/profile';
 
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
-  useEffect(() => {
-    getProfiles();
-  }, [getProfiles]);
+	useEffect(() => {
+		getProfiles();
+	}, [getProfiles]);
 
-  return (
-    <Fragment>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <Fragment>
-          <h1 className='large text-primary'>Developers</h1>
-          <div className='profiles'>
-            {profiles.length > 0 ? (
-              profiles.map((profile) => (
-                <ProfileItem key={profile._id} profile={profile} />
-              ))
-            ) : (
-              <h4>No profiles found...</h4>
-            )}
-          </div>
-        </Fragment>
-      )}
-    </Fragment>
-  );
+	return (
+		<Fragment>
+			{loading ? (
+				<Spinner />
+			) : (
+				<Fragment>
+					<div className="profiles">
+						{profiles.length > 0 ? (
+							profiles.map((profile) => (
+								<ProfileItem key={profile._id} profile={profile} />
+							))
+						) : (
+							<h4>No profiles found...</h4>
+						)}
+					</div>
+				</Fragment>
+			)}
+		</Fragment>
+	);
 };
 
 Profiles.propTypes = {
-  getProfiles: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired,
+	getProfiles: PropTypes.func.isRequired,
+	profile: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  profile: state.profile,
+	profile: state.profile,
 });
 
 export default connect(mapStateToProps, { getProfiles })(Profiles);

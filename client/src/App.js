@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Body from './components/Body/index';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import Landing from './components/layout/Landing';
+import Landing from './components/pages/Landing';
 import Routes from './components/routing/Routes';
 
 // Redux

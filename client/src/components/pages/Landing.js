@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 class Landing extends Component {
 	render() {
 		return (
-			<Container className="landingContainer">
+			<Container>
 				<Row>
 					<Col>1 of 2</Col>
 					<Col>Booking Better Together</Col>

@@ -11,7 +11,7 @@ function Footer() {
 			>
 				<i className="fab fa-github" id="github"></i>
 			</a>
-			<p id="copyright"> JR &#169; 2020 </p>
+			<div> JR &#169; 2020 </div>
 		</div>
 	);
 }
