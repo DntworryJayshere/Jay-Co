@@ -3,10 +3,11 @@ const router = express.Router();
 
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
-// bring in normalize to give us a proper url, regardless of what user entered
+const checkObjectId = require('../../middleware/checkObjectId');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const Booking = require('../../models/Booking');
 
 // @route    GET api/profile/me
 // @desc     Get current users profile
@@ -67,25 +68,69 @@ router.post(
 			let profile = await Profile.findOneAndUpdate(
 				{ user: req.user.id },
 				{ $set: profileFields },
-				{ new: true, upsert: true }
+				{ new: true, upsert: true, setDefaultsOnInsert: true }
 			);
-			res.json(profile);
+			return res.json(profile);
 		} catch (err) {
 			console.error(err.message);
-			res.status(500).send('Server Error');
+			return res.status(500).send('Server Error');
+		}
+	}
+);
+
+// @route    GET api/profile
+// @desc     Get all profiles
+// @access   ADMIN *********************************************************
+router.get('/', async (req, res) => {
+	try {
+		const profiles = await Profile.find().populate('user', [
+			'name',
+			'lastName',
+			'email',
+		]);
+		res.json(profiles);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error');
+	}
+});
+
+// @route    GET api/profile/user/:user_id
+// @desc     Get profile by user ID
+// @access   ADMIN *********************************************************
+router.get(
+	'/user/:user_id',
+	checkObjectId('user_id'),
+	async ({ params: { user_id } }, res) => {
+		try {
+			const profile = await Profile.findOne({
+				user: user_id,
+			}).populate('user', ['name', 'lastName', 'email']);
+
+			if (!profile) return res.status(400).json({ msg: 'Profile not found' });
+
+			return res.json(profile);
+		} catch (err) {
+			console.error(err.message);
+			return res.status(500).json({ msg: 'Server error' });
 		}
 	}
 );
 
 // @route    DELETE api/profile
-// @desc     Delete profile, user & posts
+// @desc     Delete profile, user, bookings
 // @access   Private
 router.delete('/', auth, async (req, res) => {
 	try {
+		// Remove user bookings
 		// Remove profile
-		await Profile.findOneAndRemove({ user: req.user.id });
 		// Remove user
-		await User.findOneAndRemove({ _id: req.user.id });
+		await Promise.all([
+			Booking.deleteMany({ user: req.user.id }),
+			Profile.findOneAndRemove({ user: req.user.id }),
+			User.findOneAndRemove({ _id: req.user.id }),
+		]);
+
 		res.json({ msg: 'User deleted' });
 	} catch (err) {
 		console.error(err.message);

@@ -11,7 +11,7 @@ const Navbarb = ({ auth: { isAuthenticated, loading }, logout }) => {
 		<>
 			<Nav className="justify-content-center">
 				<Nav.Link href="/appointment">Schedule Here</Nav.Link>
-				<Nav.Link href="/dashboard">My Profile</Nav.Link>
+				<Nav.Link href="/dashboard">Profile</Nav.Link>
 			</Nav>
 			<Nav>
 				<Nav.Link onClick={logout} href="#!">

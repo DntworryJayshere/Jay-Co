@@ -6,28 +6,34 @@ import BookingItem from './BookingItem';
 import { getBookings } from '../../actions/booking';
 
 const Bookings = ({ getBookings, booking: { bookings, loading } }) => {
-  useEffect(() => {
-    getBookings();
-  }, [getBookings]);
+	useEffect(() => {
+		getBookings();
+	}, []);
 
-  return loading ? (
-    <Spinner />
-  ) : (
-    <Fragment>
-      {bookings.map((booking) => (
-        <BookingItem key={booking._id} booking={booking} />
-      ))}
-    </Fragment>
-  );
+	return (
+		<Fragment>
+			{loading ? (
+				<Spinner />
+			) : (
+				<Fragment>
+					<div>
+						{bookings.map((booking) => (
+							<BookingItem key={booking._id} booking={booking} />
+						))}
+					</div>
+				</Fragment>
+			)}
+		</Fragment>
+	);
 };
 
 Bookings.propTypes = {
-  getBookings: PropTypes.func.isRequired,
-  booking: PropTypes.object.isRequired,
+	getBookings: PropTypes.func.isRequired,
+	booking: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  booking: state.booking,
+	booking: state.booking,
 });
 
 export default connect(mapStateToProps, { getBookings })(Bookings);
