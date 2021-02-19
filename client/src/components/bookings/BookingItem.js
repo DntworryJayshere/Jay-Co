@@ -1,49 +1,74 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deleteBooking } from '../../actions/booking';
 import Button from 'react-bootstrap/Button';
 import Moment from 'react-moment';
 import moment from 'moment';
 import 'moment-timezone';
 
 const BookingItem = ({
+	deleteBooking,
+	auth,
 	booking: {
-		user: { _id },
+		_id,
 		text,
 		appointmentDate,
 		appointmentTime,
+		user,
 		appointmentDuration,
 	},
-}) => {
-	return (
-		<div>
-			<p>
-				Appointment Date:{' '}
-				<span>
-					<Moment format="MMM-D-YYYY">{moment.utc(appointmentDate)}</Moment>
-				</span>
-			</p>
-			<p>
-				Appointment Time: <span>{appointmentTime}</span>
-			</p>
-			<p>
-				Appointment Duration: <span>{appointmentDuration}</span>
-			</p>
-			<p>
-				Comment: <span>{text}</span>
-			</p>
-			<Link to="/edit-booking">
-				<Button variant="success">Edit Booking</Button>
-			</Link>
-			<Link to={`/booking/${_id}`} className="btn btn-primary">
-				View Profile
-			</Link>
-		</div>
-	);
+	showActions,
+}) => (
+	<div>
+		{showActions && (
+			<Fragment>
+				{!auth.loading && user === auth.user._id && (
+					<div>
+						<p>
+							Appointment Date:{' '}
+							<span>
+								<Moment format="MMM-D-YYYY">
+									{moment.utc(appointmentDate)}
+								</Moment>
+							</span>
+						</p>
+						<p>
+							Appointment Time: <span>{appointmentTime}</span>
+						</p>
+						<p>
+							Appointment Duration: <span>{appointmentDuration}</span>
+						</p>
+						<p>
+							Comment: <span>{text}</span>
+						</p>
+						<Link to={`/bookings/${_id}`}>
+							<Button variant="success">Edit Booking</Button>
+						</Link>
+						<Button onClick={() => deleteBooking(_id)} variant="danger">
+							Delete Booking
+						</Button>
+					</div>
+				)}
+			</Fragment>
+		)}
+	</div>
+);
+
+BookingItem.defaultProps = {
+	showActions: true,
 };
 
 BookingItem.propTypes = {
 	booking: PropTypes.object.isRequired,
+	auth: PropTypes.object.isRequired,
+	deleteBooking: PropTypes.func.isRequired,
+	showActions: PropTypes.bool,
 };
 
-export default BookingItem;
+const mapStateToProps = (state) => ({
+	auth: state.auth,
+});
+
+export default connect(mapStateToProps, { deleteBooking })(BookingItem);

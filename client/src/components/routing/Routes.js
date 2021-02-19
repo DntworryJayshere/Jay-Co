@@ -31,8 +31,8 @@ const Routes = (props) => {
 				<PrivateRoute exact path="/profiles" component={Profiles} />
 
 				<PrivateRoute exact path="/appointment" component={Appointment} />
-				<PrivateRoute exact path="/bookings/:id" component={Booking} />
 				<PrivateRoute exact path="/bookings" component={Bookings} />
+				<PrivateRoute exact path="/bookings/:id" component={Booking} />
 
 				<Route exact path="/err500" component={Err500} />
 				<Route exact path="/err401" component={Err401} />

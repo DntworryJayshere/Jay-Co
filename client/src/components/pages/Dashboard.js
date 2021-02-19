@@ -6,7 +6,6 @@ import { deleteAccount } from '../../actions/profile';
 import Profile from '../profile/Profile';
 import Bookings from '../bookings/Bookings';
 import Button from 'react-bootstrap/Button';
-// import { getBooking } from '../../actions/booking';
 
 const Dashboard = ({
 	deleteAccount,
@@ -14,10 +13,6 @@ const Dashboard = ({
 	profile: { profile, loading },
 	booking: { booking },
 }) => {
-	// useEffect(() => {
-	// 	getBookings();
-	// }, [getBookings]);
-
 	return (
 		<Fragment>
 			<div className="container">
@@ -56,7 +51,7 @@ const Dashboard = ({
 					</Fragment>
 				)}
 
-				{loading || booking !== null ? (
+				{loading || Bookings !== null ? (
 					<Fragment>
 						<div>
 							<h2>Booking information</h2>

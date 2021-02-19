@@ -8,7 +8,7 @@ import { getBookings } from '../../actions/booking';
 const Bookings = ({ getBookings, booking: { bookings, loading } }) => {
 	useEffect(() => {
 		getBookings();
-	}, []);
+	}, [getBookings]);
 
 	return (
 		<Fragment>
