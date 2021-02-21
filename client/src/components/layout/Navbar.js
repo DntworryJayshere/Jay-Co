@@ -5,17 +5,25 @@ import { logout } from '../../actions/auth';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
+import './Navbar.css';
 
 const Navbarb = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const authLinks = (
 		<>
 			<Nav className="justify-content-center">
-				<Nav.Link href="/appointment">Schedule Here</Nav.Link>
-				<Nav.Link href="/dashboard">Profile</Nav.Link>
+				<Nav.Link className="nav-links" href="/appointment">
+					Schedule Here
+				</Nav.Link>
+			</Nav>
+			<Nav className="justify-content-center">
+				<Nav.Link className="nav-links" href="/dashboard">
+					Profile
+				</Nav.Link>
 			</Nav>
 			<Nav>
 				<Nav.Link onClick={logout} href="#!">
-					Logout
+					<Button className="btn--outline">Logout</Button>
 				</Nav.Link>
 			</Nav>
 		</>
@@ -23,7 +31,9 @@ const Navbarb = ({ auth: { isAuthenticated, loading }, logout }) => {
 
 	const guestLinks = (
 		<Nav className="justify-content-end">
-			<Nav.Link href="/login">Login</Nav.Link>
+			<Nav.Link href="/login">
+				<Button className="btn--outline">Login</Button>
+			</Nav.Link>
 		</Nav>
 	);
 

@@ -107,7 +107,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
 						<div className="OtherButtons">
 							<Link className="OtherButtons" to="/Login">
-								<Button variant="outline-danger">Go Back</Button>
+								<Button variant="danger">Go Back</Button>
 							</Link>
 						</div>
 					</div>
