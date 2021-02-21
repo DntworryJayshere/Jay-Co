@@ -48,7 +48,7 @@ const ProfileForm = ({
 
 	return (
 		<Fragment>
-			<div className="container">
+			<div className="container form">
 				<h2>Edit Your Profile</h2>
 
 				<Form className="form" onSubmit={onSubmit}>

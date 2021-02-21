@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -31,7 +31,6 @@ const Dashboard = ({
 						<i className="fas fa-trash" /> Delete My Account{' '}
 					</Button>
 				</div>
-
 				{loading || profile !== null ? (
 					<Fragment>
 						<div>
@@ -50,17 +49,17 @@ const Dashboard = ({
 						</div>
 					</Fragment>
 				)}
-
 				{loading || Bookings !== null ? (
 					<Fragment>
 						<div>
 							<h2>Booking information</h2>
-							<Bookings />
+							<Bookings booking={booking} />
 						</div>
 					</Fragment>
 				) : (
 					<Fragment>
 						<div>
+							<h2>Booking information</h2>
 							<p>You have not have any Appointments, please set one</p>
 							<Link to="/appointment">
 								<Button variant="success">Create Appointment</Button>

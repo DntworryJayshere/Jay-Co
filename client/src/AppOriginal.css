@@ -3,12 +3,23 @@
 
 /*===== Colors =====*/
 :root {
-	--first-color: #311b92;
-	--second-color: #000063;
+	--primary-color: #769499;
+	--dark-color: #343a40;
+	--light-color: #f4f4f4;
+	--danger-color: #dc3545;
+	--success-color: #28a745;
 }
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 #error-text {
 	color: red !important;
 }
+
 /*===== Font Sizes =====*/
 :root {
 	--body-font: 'Poppins', sans-serif;
@@ -26,9 +37,20 @@
 /*===== VARIABLES CSS =====*/
 
 /*===== LAYOUT =====*/
-.container {
-	min-height: 85vh;
+#root {
+	height: 100vh;
 	background-color: lightgray;
+}
+.body {
+	background-color: lightgray;
+	min-height: 85vh;
+	font-size: 1rem;
+	line-height: 1.6;
+}
+.container {
+	background-color: lightgray;
+	min-height: 85vh;
+	margin: auto;
 }
 
 h2 {
@@ -36,14 +58,19 @@ h2 {
 	padding-top: 2rem;
 }
 /* ===== NAVBAR =====*/
+.navbar {
+	min-height: 5vh;
+	max-height: 10vh;
+}
+/* ===== FOOTER =====
+padding-top: 1rem; */
 
-/* ===== FOOTER ===== */
 .footer {
+	background-color: lightgray;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	padding-top: 1rem;
 	bottom: 0;
 	left: 0;
 	width: auto;
@@ -54,22 +81,10 @@ h2 {
 }
 
 /*===== FORMS =====*/
-.Register-form {
+.form {
 	background-color: whitesmoke;
-	margin: 2rem;
-	padding: 2rem;
-	border-radius: 20px;
-}
-.Login-form {
-	background-color: whitesmoke;
-	margin: 2rem;
-	padding: 2rem;
-	border-radius: 20px;
-}
-.Booking-form {
-	background-color: whitesmoke;
-	margin: 2rem;
-	padding: 2rem;
+	margin: auto;
+	padding: auto;
 	border-radius: 20px;
 }
 

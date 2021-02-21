@@ -38,7 +38,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
 	return (
 		<Fade>
-			<div className="Register-form">
+			<div className="container form">
 				<Form onSubmit={onSubmit}>
 					<Form.Group controlId="FirstName">
 						<Form.Label>First Name</Form.Label>

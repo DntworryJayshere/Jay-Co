@@ -31,91 +31,89 @@ const BookingForm = ({ addBooking }) => {
 	};
 
 	return (
-		<div className="container">
-			<div className="Booking-form">
-				<Form onSubmit={onSubmit}>
-					<Col sm={12}>
-						<Form.Group as={Row} controlId="appointmentDate">
-							<Form.Label column sm={10}>
-								Appointment Date:
-							</Form.Label>
-							<Form.Control
-								name="appointmentDate"
-								value={appointmentDate}
-								onChange={onChange}
-								type="Date"
-								required
-							/>
-						</Form.Group>
-					</Col>
+		<div className="container form">
+			<Form onSubmit={onSubmit}>
+				<Col sm={12}>
+					<Form.Group as={Row} controlId="appointmentDate">
+						<Form.Label column sm={10}>
+							Appointment Date:
+						</Form.Label>
+						<Form.Control
+							name="appointmentDate"
+							value={appointmentDate}
+							onChange={onChange}
+							type="Date"
+							required
+						/>
+					</Form.Group>
+				</Col>
 
-					<Col sm={12}>
-						<Form.Group as={Row} controlId="appointmentTime">
-							<Form.Label column sm={3}>
-								Appointment Time:
-							</Form.Label>
-							<Form.Control
-								name="appointmentTime"
-								value={appointmentTime}
-								onChange={onChange}
-								type="Time"
-								required
-							/>
-						</Form.Group>
-					</Col>
+				<Col sm={12}>
+					<Form.Group as={Row} controlId="appointmentTime">
+						<Form.Label column sm={3}>
+							Appointment Time:
+						</Form.Label>
+						<Form.Control
+							name="appointmentTime"
+							value={appointmentTime}
+							onChange={onChange}
+							type="Time"
+							required
+						/>
+					</Form.Group>
+				</Col>
 
-					<Col sm={12}>
-						<Form.Group as={Row} controlId="appointmentDuration">
-							<Form.Label column sm={3}>
-								Appointment Duration:
-							</Form.Label>
-							<Form.Control
-								as="select"
-								defaultValue="45 minutes"
-								name="appointmentDuration"
-								value={appointmentDuration}
-								onChange={onChange}
-								type="Time"
-								required
-							>
-								<option></option>
-								<option>30 minutes</option>
-								<option>45 minutes</option>
-								<option>1 hour</option>
-								<option>1 hour 30 minutes</option>
-								<option>2 hours</option>
-							</Form.Control>
-						</Form.Group>
-					</Col>
-
-					<Col sm={12}>
-						<Form.Group as={Row} controlId="text">
-							<Form.Label column sm={2}>
-								Comment:
-							</Form.Label>
-							<Form.Control
-								name="text"
-								value={text}
-								placeholder="Id like to discuss..."
-								onChange={onChange}
-								type="text"
-								required
-							/>
-						</Form.Group>
-					</Col>
-
-					<div id="bookingFormButton">
-						<Button
-							name="submit"
-							className="btn btn-success"
-							type="submit"
-							value="Submit"
+				<Col sm={12}>
+					<Form.Group as={Row} controlId="appointmentDuration">
+						<Form.Label column sm={3}>
+							Appointment Duration:
+						</Form.Label>
+						<Form.Control
+							as="select"
+							defaultValue="45 minutes"
+							name="appointmentDuration"
+							value={appointmentDuration}
+							onChange={onChange}
+							type="Time"
+							required
 						>
-							Submit
-						</Button>
-					</div>
-				</Form>
-			</div>
+							<option></option>
+							<option>30 minutes</option>
+							<option>45 minutes</option>
+							<option>1 hour</option>
+							<option>1 hour 30 minutes</option>
+							<option>2 hours</option>
+						</Form.Control>
+					</Form.Group>
+				</Col>
+
+				<Col sm={12}>
+					<Form.Group as={Row} controlId="text">
+						<Form.Label column sm={2}>
+							Comment:
+						</Form.Label>
+						<Form.Control
+							name="text"
+							value={text}
+							placeholder="Id like to discuss..."
+							onChange={onChange}
+							type="text"
+							required
+						/>
+					</Form.Group>
+				</Col>
+
+				<div id="bookingFormButton">
+					<Button
+						name="submit"
+						className="btn btn-success"
+						type="submit"
+						value="Submit"
+					>
+						Submit
+					</Button>
+				</div>
+			</Form>
 		</div>
 	);
 };

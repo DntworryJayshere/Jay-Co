@@ -29,7 +29,7 @@ const Login = ({ login, isAuthenticated }) => {
 
 	return (
 		<Fade>
-			<div className="Login-form">
+			<div className="container form">
 				<Form onSubmit={onSubmit}>
 					<Form.Group controlId="FirstName">
 						<Form.Label>Email Address</Form.Label>
