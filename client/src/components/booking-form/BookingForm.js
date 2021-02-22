@@ -31,8 +31,8 @@ const BookingForm = ({ addBooking }) => {
 	};
 
 	return (
-		<div className="container form">
-			<Form onSubmit={onSubmit}>
+		<div className="container">
+			<Form className="form" onSubmit={onSubmit}>
 				<Col sm={12}>
 					<Form.Group as={Row} controlId="appointmentDate">
 						<Form.Label column sm={10}>

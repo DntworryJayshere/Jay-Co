@@ -3,7 +3,6 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
-import Fade from 'react-reveal/Fade';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
@@ -28,51 +27,49 @@ const Login = ({ login, isAuthenticated }) => {
 	}
 
 	return (
-		<Fade>
-			<div className="container form">
-				<Form onSubmit={onSubmit}>
-					<Form.Group controlId="FirstName">
-						<Form.Label>Email Address</Form.Label>
-						<Form.Control
-							type="email"
-							placeholder="Email Address"
-							name="email"
-							value={email}
-							onChange={onChange}
-							required
-						/>
-					</Form.Group>
+		<div className="container">
+			<Form className="form" onSubmit={onSubmit}>
+				<Form.Group controlId="FirstName">
+					<Form.Label>Email Address</Form.Label>
+					<Form.Control
+						type="email"
+						placeholder="Email Address"
+						name="email"
+						value={email}
+						onChange={onChange}
+						required
+					/>
+				</Form.Group>
 
-					<Form.Group controlId="LastName">
-						<Form.Label>Password</Form.Label>
-						<Form.Control
-							type="password"
-							placeholder="Password"
-							name="password"
-							value={password}
-							onChange={onChange}
-							minLength="6"
-						/>
-					</Form.Group>
+				<Form.Group controlId="LastName">
+					<Form.Label>Password</Form.Label>
+					<Form.Control
+						type="password"
+						placeholder="Password"
+						name="password"
+						value={password}
+						onChange={onChange}
+						minLength="6"
+					/>
+				</Form.Group>
 
-					<div className="SubmitButtonBar">
-						<Button variant="dark" name="submit" type="submit" value="Login">
-							Submit
-						</Button>
+				<div className="SubmitButtonBar">
+					<Button variant="dark" name="submit" type="submit" value="Login">
+						Submit
+					</Button>
 
-						<div className="OtherButtons">
-							<Link to="/register">
-								<Button variant="success">Register</Button>
-							</Link>
+					<div className="OtherButtons">
+						<Link to="/register">
+							<Button variant="success">Register</Button>
+						</Link>
 
-							<Link className="OtherButtons" to="/">
-								<Button variant="danger">Go Back</Button>
-							</Link>
-						</div>
+						<Link className="OtherButtons" to="/">
+							<Button variant="danger">Go Back</Button>
+						</Link>
 					</div>
-				</Form>
-			</div>
-		</Fade>
+				</div>
+			</Form>
+		</div>
 	);
 };
 

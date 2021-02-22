@@ -6,7 +6,6 @@ import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Fade from 'react-reveal/Fade';
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
 	const [formData, setFormData] = useState({
@@ -37,83 +36,81 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 	}
 
 	return (
-		<Fade>
-			<div className="container form">
-				<Form onSubmit={onSubmit}>
-					<Form.Group controlId="FirstName">
-						<Form.Label>First Name</Form.Label>
-						<Form.Control
-							name="name"
-							value={name}
-							onChange={onChange}
-							type="text"
-							placeholder="First name"
-							required
-						/>
-					</Form.Group>
+		<div className="container form">
+			<Form className="form" onSubmit={onSubmit}>
+				<Form.Group controlId="FirstName">
+					<Form.Label>First Name</Form.Label>
+					<Form.Control
+						name="name"
+						value={name}
+						onChange={onChange}
+						type="text"
+						placeholder="First name"
+						required
+					/>
+				</Form.Group>
 
-					<Form.Group controlId="LastName">
-						<Form.Label>Last Name</Form.Label>
-						<Form.Control
-							name="lastName"
-							value={lastName}
-							onChange={onChange}
-							type="text"
-							placeholder="Last name"
-							required
-						/>
-					</Form.Group>
+				<Form.Group controlId="LastName">
+					<Form.Label>Last Name</Form.Label>
+					<Form.Control
+						name="lastName"
+						value={lastName}
+						onChange={onChange}
+						type="text"
+						placeholder="Last name"
+						required
+					/>
+				</Form.Group>
 
-					<Form.Group controlId="Email">
-						<Form.Label>Email address</Form.Label>
-						<Form.Control
-							name="email"
-							value={email}
-							onChange={onChange}
-							type="email"
-							placeholder="Enter email"
-							required
-						/>
-					</Form.Group>
+				<Form.Group controlId="Email">
+					<Form.Label>Email address</Form.Label>
+					<Form.Control
+						name="email"
+						value={email}
+						onChange={onChange}
+						type="email"
+						placeholder="Enter email"
+						required
+					/>
+				</Form.Group>
 
-					<Form.Group controlId="Password1">
-						<Form.Label>Password</Form.Label>
-						<Form.Control
-							name="password"
-							value={password}
-							onChange={onChange}
-							type="password"
-							placeholder="Password"
-							required
-						/>
-					</Form.Group>
+				<Form.Group controlId="Password1">
+					<Form.Label>Password</Form.Label>
+					<Form.Control
+						name="password"
+						value={password}
+						onChange={onChange}
+						type="password"
+						placeholder="Password"
+						required
+					/>
+				</Form.Group>
 
-					<Form.Group controlId="Password2">
-						<Form.Label>Re-Password</Form.Label>
-						<Form.Control
-							name="password2"
-							value={password2}
-							onChange={onChange}
-							type="password"
-							placeholder="Password"
-							required
-						/>
-					</Form.Group>
+				<Form.Group controlId="Password2">
+					<Form.Label>Re-Password</Form.Label>
+					<Form.Control
+						name="password2"
+						value={password2}
+						onChange={onChange}
+						type="password"
+						placeholder="Password"
+						required
+					/>
+				</Form.Group>
 
-					<div className="SubmitButtonBar">
-						<Button variant="dark" name="submit" type="submit">
-							Submit
-						</Button>
+				<div className="SubmitButtonBar">
+					<Button variant="dark" name="submit" type="submit">
+						Submit
+					</Button>
 
-						<div className="OtherButtons">
-							<Link className="OtherButtons" to="/Login">
-								<Button variant="danger">Go Back</Button>
-							</Link>
-						</div>
+					<div className="OtherButtons">
+						<Link className="OtherButtons" to="/Login">
+							<Button variant="danger">Go Back</Button>
+						</Link>
 					</div>
-				</Form>
-			</div>
-		</Fade>
+				</div>
+			</Form>
+		</div>
 	);
 };
 

@@ -26,28 +26,37 @@ const BookingItem = ({
 			<Fragment>
 				{!auth.loading && user === auth.user._id && (
 					<div>
-						<p>
+						<div className="contextBodyProfile">
 							Appointment Date:{' '}
 							<span>
 								<Moment format="MMM-D-YYYY">
 									{moment.utc(appointmentDate)}
 								</Moment>
 							</span>
-						</p>
-						<p>
+							<Link to={`/bookings/${_id}`} className="editOption">
+								<p>Change Date</p>
+							</Link>
+						</div>
+						<div className="contextBodyProfile">
 							Appointment Time: <span>{appointmentTime}</span>
-						</p>
-						<p>
+							<Link to={`/bookings/${_id}`} className="editOption">
+								<p>Change Time</p>
+							</Link>
+						</div>
+						<div className="contextBodyProfile">
 							Appointment Duration: <span>{appointmentDuration}</span>
-						</p>
-						<p>
-							Comment: <span>{text}</span>
-						</p>
-						<Link to={`/bookings/${_id}`}>
-							<Button variant="success">Edit Booking</Button>
-						</Link>
-						<Button onClick={() => deleteBooking(_id)} variant="danger">
-							Delete Booking
+							<Link to={`/bookings/${_id}`} className="editOption">
+								<p>Change Duration</p>
+							</Link>
+						</div>
+						<div className="contextBodyProfile">
+							Appointment Comments: <span>{text}</span>
+							<Link to={`/bookings/${_id}`} className="editOption">
+								<p>Change Date</p>
+							</Link>
+						</div>
+						<Button variant="danger" onClick={() => deleteBooking(_id)}>
+							<i className="fas fa-trash" /> Delete Booking{' '}
 						</Button>
 					</div>
 				)}

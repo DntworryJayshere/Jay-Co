@@ -20,33 +20,51 @@ const ProfileItem = ({
 }) => {
 	return (
 		<div>
-			<p>
-				DOB{' '}
+			<div className="contextBodyProfile">
+				Date of Birth:{' '}
 				<span>
 					<Moment format="MMM-D-YYYY">{moment.utc(dob)}</Moment>
 				</span>
-			</p>
-			<p>
+				<Link to="/edit-profile" className="editOption">
+					<p>Change DoB</p>
+				</Link>
+			</div>
+			<div className="contextBodyProfile">
 				Phone: <span>{phone}</span>
-			</p>
-			<p>
+				<Link to="/edit-profile" className="editOption">
+					<p>Change Phone</p>
+				</Link>
+			</div>
+			<div className="contextBodyProfile">
 				Address1: <span>{address1}</span>
-			</p>
-			<p>
+				<Link to="/edit-profile" className="editOption">
+					<p>Change Address1</p>
+				</Link>
+			</div>
+			<div className="contextBodyProfile">
 				Address2: <span>{address2}</span>
-			</p>
-			<p>
+				<Link to="/edit-profile" className="editOption">
+					<p>Change Address2</p>
+				</Link>
+			</div>
+			<div className="contextBodyProfile">
 				City: <span>{city}</span>
-			</p>
-			<p>
+				<Link to="/edit-profile" className="editOption">
+					<p>Change City</p>
+				</Link>
+			</div>
+			<div className="contextBodyProfile">
 				State: <span>{statee}</span>
-			</p>
-			<p>
+				<Link to="/edit-profile" className="editOption">
+					<p>Change State</p>
+				</Link>
+			</div>
+			<div className="contextBodyProfile">
 				Zip: <span>{zip}</span>
-			</p>
-			<Link to="/edit-profile">
-				<Button variant="success">Edit Profile</Button>
-			</Link>
+				<Link to="/edit-profile" className="editOption">
+					<p>Change Zip</p>
+				</Link>
+			</div>
 		</div>
 	);
 };

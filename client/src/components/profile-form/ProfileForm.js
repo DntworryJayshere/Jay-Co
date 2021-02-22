@@ -48,7 +48,7 @@ const ProfileForm = ({
 
 	return (
 		<Fragment>
-			<div className="container form">
+			<div className="container">
 				<h2>Edit Your Profile</h2>
 
 				<Form className="form" onSubmit={onSubmit}>
@@ -153,7 +153,7 @@ const ProfileForm = ({
 
 							<div className="OtherButtons">
 								<Link className="OtherButtons" to="/dashboard">
-									<Button id="dash-button3" variant="outline-danger">
+									<Button id="dash-button3" variant="danger">
 										Go Back
 									</Button>
 								</Link>
