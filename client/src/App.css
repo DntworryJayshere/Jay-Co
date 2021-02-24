@@ -2954,6 +2954,14 @@ h6 {
 	width: 100%;
 	height: 100%;
 }
+.splashPicSample {
+	background-image: url(./img/img1.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+}
 .splashHeading {
 	font-weight: 500;
 	font-size: 2.3rem;

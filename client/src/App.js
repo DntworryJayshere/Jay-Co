@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/pages/Landing';
+import SamplePage from './components/pages/SamplePage';
 import Footer from './components/layout/Footer';
 import Routes from './components/routing/Routes';
 
@@ -26,6 +27,7 @@ const App = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/" component={Landing} />
+						<Route exact path="/SamplePage" component={SamplePage} />
 						<Route component={Routes} />
 					</Switch>
 					<Footer />

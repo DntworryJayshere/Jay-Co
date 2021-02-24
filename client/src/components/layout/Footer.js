@@ -29,33 +29,33 @@ function Footer() {
 					<div className="footer-link-wrapper">
 						<div className="footer-link-items">
 							<h2>About</h2>
-							<Link to="/">How it works</Link>
-							<Link to="/">Testimonials</Link>
-							<Link to="/">Careers</Link>
-							<Link to="/">Terms of Service</Link>
+							<Link to="/SamplePage">How it works</Link>
+							<Link to="/SamplePage">Testimonials</Link>
+							<Link to="/SamplePage">Careers</Link>
+							<Link to="/SamplePage">Terms of Service</Link>
 						</div>
 						<div className="footer-link-items">
 							<h2>Contact</h2>
-							<Link to="/">Contact</Link>
-							<Link to="/">Support</Link>
-							<Link to="/">Important</Link>
-							<Link to="/">Sponsorships</Link>
+							<Link to="/SamplePage">Contact</Link>
+							<Link to="/SamplePage">Support</Link>
+							<Link to="/SamplePage">Important</Link>
+							<Link to="/SamplePage">Sponsorships</Link>
 						</div>
 					</div>
 					<div className="footer-link-wrapper">
 						<div className="footer-link-items">
 							<h2>Videos</h2>
-							<Link to="/">Submit</Link>
-							<Link to="/">Ambassadors</Link>
-							<Link to="/">Agency</Link>
-							<Link to="/">Influencer</Link>
+							<Link to="/SamplePage">Submit</Link>
+							<Link to="/SamplePage">Ambassadors</Link>
+							<Link to="/SamplePage">Agency</Link>
+							<Link to="/SamplePage">Influencer</Link>
 						</div>
 						<div className="footer-link-items">
 							<h2>Social</h2>
-							<Link to="/">Github</Link>
-							<Link to="/">Linkedin</Link>
-							<Link to="/">Instagram</Link>
-							<Link to="/">Facebook</Link>
+							<Link to="/SamplePage">Github</Link>
+							<Link to="/SamplePage">Linkedin</Link>
+							<Link to="/SamplePage">Instagram</Link>
+							<Link to="/SamplePage">Facebook</Link>
 						</div>
 					</div>
 				</div>
