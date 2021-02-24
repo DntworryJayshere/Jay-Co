@@ -69,7 +69,6 @@ body {
 	background-color: whitesmoke;
 	margin: auto;
 	padding: 1rem;
-	border-radius: 20px;
 }
 
 /* ===================================================================================================================================== */
@@ -3157,7 +3156,7 @@ h6 {
 	width: 400px;
 }
 .topping {
-	margin-top: 60px;
+	margin-top: 40px;
 }
 @media screen and (max-width: 768px), screen and (max-width: 991.5px) {
 	.splashOuterContainer {
@@ -3300,7 +3299,7 @@ h6 {
 	background-color: #fff;
 	width: 100%;
 	height: 100%;
-	min-height: calc(100vh - 170px) !important;
+	/* min-height: calc(100vh - 120px) !important; */
 }
 @media screen and (max-width: 768px), screen and (max-width: 991.5px) {
 	.outerContainer {
@@ -4519,9 +4518,7 @@ h6 {
 	display: flex;
 	justify-content: space-between;
 }
-.OtherButtons {
-	padding-left: 1rem;
-}
+
 .bookingFormButton {
 	display: flex;
 	justify-content: center;

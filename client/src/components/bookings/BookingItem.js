@@ -21,7 +21,7 @@ const BookingItem = ({
 	},
 	showActions,
 }) => (
-	<div>
+	<>
 		{showActions && (
 			<Fragment>
 				{!auth.loading && user === auth.user._id && (
@@ -52,17 +52,21 @@ const BookingItem = ({
 						<div className="contextBodyProfile">
 							Appointment Comments: <span>{text}</span>
 							<Link to={`/bookings/${_id}`} className="editOption">
-								<p>Change Date</p>
+								<p>Change Comments</p>
 							</Link>
 						</div>
-						<Button variant="danger" onClick={() => deleteBooking(_id)}>
+						<Button
+							className="contextBodyProfile"
+							variant="danger"
+							onClick={() => deleteBooking(_id)}
+						>
 							<i className="fas fa-trash" /> Delete Booking{' '}
 						</Button>
 					</div>
 				)}
 			</Fragment>
 		)}
-	</div>
+	</>
 );
 
 BookingItem.defaultProps = {

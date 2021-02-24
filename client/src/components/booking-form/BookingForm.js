@@ -31,89 +31,105 @@ const BookingForm = ({ addBooking }) => {
 	};
 
 	return (
-		<div className="container">
-			<Form className="form" onSubmit={onSubmit}>
-				<Col sm={12}>
-					<Form.Group as={Row} controlId="appointmentDate">
-						<Form.Label column sm={10}>
-							Appointment Date:
-						</Form.Label>
-						<Form.Control
-							name="appointmentDate"
-							value={appointmentDate}
-							onChange={onChange}
-							type="Date"
-							required
-						/>
-					</Form.Group>
-				</Col>
+		<div className="outerContainer">
+			<div className="col-md-12 mx-auto p-0">
+				<div className="container py-1">
+					<div className="col-md-12 mt-6 bg-white p-0">
+						<div className="row justify-content-center">
+							<div className="col-md-8 col-sm-11 col-12 mx-auto pb-5">
+								<div className="card border-0 shadow-lg my-5">
+									<div className="card-body p-0">
+										<div className="row justify-content-center">
+											<div className="col-lg-12">
+												<div className="p-5">
+													<Form className="form" onSubmit={onSubmit}>
+														<Col>
+															<Form.Group as={Row} controlId="appointmentDate">
+																<Form.Label>Appointment Date:</Form.Label>
+																<Form.Control
+																	name="appointmentDate"
+																	value={appointmentDate}
+																	onChange={onChange}
+																	type="Date"
+																	required
+																/>
+															</Form.Group>
+														</Col>
 
-				<Col sm={12}>
-					<Form.Group as={Row} controlId="appointmentTime">
-						<Form.Label column sm={3}>
-							Appointment Time:
-						</Form.Label>
-						<Form.Control
-							name="appointmentTime"
-							value={appointmentTime}
-							onChange={onChange}
-							type="Time"
-							required
-						/>
-					</Form.Group>
-				</Col>
+														<Col>
+															<Form.Group as={Row} controlId="appointmentTime">
+																<Form.Label>Appointment Time:</Form.Label>
+																<Form.Control
+																	name="appointmentTime"
+																	value={appointmentTime}
+																	onChange={onChange}
+																	type="Time"
+																	required
+																/>
+															</Form.Group>
+														</Col>
 
-				<Col sm={12}>
-					<Form.Group as={Row} controlId="appointmentDuration">
-						<Form.Label column sm={3}>
-							Appointment Duration:
-						</Form.Label>
-						<Form.Control
-							as="select"
-							defaultValue="45 minutes"
-							name="appointmentDuration"
-							value={appointmentDuration}
-							onChange={onChange}
-							type="Time"
-							required
-						>
-							<option></option>
-							<option>30 minutes</option>
-							<option>45 minutes</option>
-							<option>1 hour</option>
-							<option>1 hour 30 minutes</option>
-							<option>2 hours</option>
-						</Form.Control>
-					</Form.Group>
-				</Col>
+														<Col>
+															<Form.Group
+																as={Row}
+																controlId="appointmentDuration"
+															>
+																<Form.Label>Appointment Duration:</Form.Label>
+																<Form.Control
+																	as="select"
+																	defaultValue="45 minutes"
+																	name="appointmentDuration"
+																	value={appointmentDuration}
+																	onChange={onChange}
+																	type="Time"
+																	required
+																>
+																	<option></option>
+																	<option>30 minutes</option>
+																	<option>45 minutes</option>
+																	<option>1 hour</option>
+																	<option>1 hour 30 minutes</option>
+																	<option>2 hours</option>
+																</Form.Control>
+															</Form.Group>
+														</Col>
 
-				<Col sm={12}>
-					<Form.Group as={Row} controlId="text">
-						<Form.Label column sm={2}>
-							Comment:
-						</Form.Label>
-						<Form.Control
-							name="text"
-							value={text}
-							placeholder="Id like to discuss..."
-							onChange={onChange}
-							type="text"
-							required
-						/>
-					</Form.Group>
-				</Col>
+														<Col>
+															<Form.Group controlId="" text>
+																<Form.Label>Comment:</Form.Label>
+																<Form.Control
+																	as="textarea"
+																	rows={3}
+																	name="text"
+																	value={text}
+																	placeholder="Id like to discuss..."
+																	onChange={onChange}
+																	type="text"
+																/>
+															</Form.Group>
+														</Col>
 
-				<div id="bookingFormButton">
-					<Button
-						name="submit"
-						className="btn btn-success"
-						type="submit"
-						value="Submit"
-					>
-						Submit
-					</Button>
+														<div id="bookingFormButton">
+															<Button
+																name="submit"
+																className="btn btn-block mt-3 btn-success"
+																type="submit"
+																value="Submit"
+															>
+																Confirm
+															</Button>
+														</div>
+													</Form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-			</Form>
+			</div>
 		</div>
 	);
 };

@@ -62,7 +62,11 @@ const Dashboard = ({
 										)}
 									</span>
 								</div>
-								<Button variant="danger" onClick={() => deleteAccount()}>
+								<Button
+									className="contextBodyProfile"
+									variant="danger"
+									onClick={() => deleteAccount()}
+								>
 									<i className="fas fa-trash" /> Delete Account & Profile{' '}
 								</Button>
 							</div>
