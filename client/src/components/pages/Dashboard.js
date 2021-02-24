@@ -34,7 +34,7 @@ const Dashboard = ({
 										<p>Change Email</p>
 									</Link>
 								</div>
-								<div class="contextBodyProfile">
+								<div className="contextBodyProfile">
 									Password: *****
 									<Link to="/edit-account" className="editOption">
 										<p>Change Password</p>
@@ -52,7 +52,7 @@ const Dashboard = ({
 										<p>Change Last Name</p>
 									</Link>
 								</div>
-								<div class="contextBodyProfile">
+								<div className="contextBodyProfile">
 									Created Date:{' '}
 									<span>
 										{user && (
@@ -74,7 +74,7 @@ const Dashboard = ({
 
 							{loading || profile !== null ? (
 								<Fragment>
-									<div class="contextBodyTitle text-left border-top border-dark">
+									<div className="contextBodyTitle text-left border-top border-dark">
 										Profile Information
 										<br />
 										<Profile />
@@ -83,7 +83,7 @@ const Dashboard = ({
 								</Fragment>
 							) : (
 								<Fragment>
-									<div class="contextBodyTitle text-left border-top border-dark">
+									<div className="contextBodyTitle text-left border-top border-dark">
 										Profile Information
 										<br />
 										<div className="contextBodyProfile">
@@ -99,7 +99,7 @@ const Dashboard = ({
 						</div>
 						{loading || Bookings !== null ? (
 							<Fragment>
-								<div class="contextBodyTitle text-left border-top border-dark">
+								<div className="contextBodyTitle text-left border-top border-dark">
 									Appointment Information
 									<br />
 									<Bookings booking={booking} />
@@ -108,7 +108,7 @@ const Dashboard = ({
 							</Fragment>
 						) : (
 							<Fragment>
-								<div class="contextBodyTitle text-left border-top border-dark">
+								<div className="contextBodyTitle text-left border-top border-dark">
 									Appointment Information
 									<br />
 									<div className="contextBodyProfile">

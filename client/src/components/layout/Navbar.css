@@ -18,12 +18,7 @@
 	display: flex;
 	align-items: center;
 }
-
-.nav-item {
-	min-height: 4rem;
-}
-
-.nav-links {
+.nav-link {
 	color: #fff;
 	display: flex;
 	align-items: center;
@@ -32,7 +27,7 @@
 	height: 100%;
 }
 
-.nav-links:hover {
+.nav-link:hover {
 	border-bottom: 0.1rem solid #fff;
 	transition: all 0.2s ease-out;
 }
