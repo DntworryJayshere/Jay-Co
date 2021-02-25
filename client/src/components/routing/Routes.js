@@ -9,6 +9,7 @@ import ProfileForm from '../profile-form/ProfileForm';
 import Profile from '../profile/Profile';
 import Profiles from '../profiles/Profiles';
 import Appointment from '../pages/Appointment';
+import BookingForm from '../booking-form/BookingForm';
 import Booking from '../booking/Booking';
 import Bookings from '../bookings/Bookings';
 import Err404 from '../pages/errors/404/404';
@@ -31,6 +32,7 @@ const Routes = (props) => {
 				<PrivateRoute exact path="/profiles" component={Profiles} />
 
 				<PrivateRoute exact path="/appointment" component={Appointment} />
+				<PrivateRoute exact path="/edit-booking" component={BookingForm} />
 				<PrivateRoute exact path="/bookings" component={Bookings} />
 				<PrivateRoute exact path="/bookings/:id" component={Booking} />
 
