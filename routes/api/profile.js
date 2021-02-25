@@ -78,7 +78,7 @@ router.post(
 	}
 );
 
-// @route    GET api/profile
+// @route    GET api/profile/admin
 // @desc     Get all profiles
 // @access   ADMIN *********************************************************
 router.get('/admin', async (req, res) => {
@@ -95,11 +95,11 @@ router.get('/admin', async (req, res) => {
 	}
 });
 
-// @route    GET api/profile/user/:user_id
+// @route    GET api/profile/admin/:user_id
 // @desc     Get profile by user ID
 // @access   ADMIN *********************************************************
 router.get(
-	'/user/:user_id',
+	'/admin/:user_id',
 	checkObjectId('user_id'),
 	async ({ params: { user_id } }, res) => {
 		try {
@@ -137,5 +137,30 @@ router.delete('/', auth, async (req, res) => {
 		res.status(500).send('Server Error');
 	}
 });
+
+// @route    DELETE api/profile/admin/:user_id
+// @desc     Delete profile, user, bookings
+// @access   ADMIN *********************************************************
+router.delete(
+	'/admin/:user_id',
+	checkObjectId('user_id'),
+	async ({ params: { user_id } }, res) => {
+		try {
+			// Remove user bookings
+			// Remove profile
+			// Remove user
+			await Promise.all([
+				Booking.deleteMany({ user: user_id }),
+				Profile.findOneAndRemove({ user: user_id }),
+				User.findOneAndRemove({ _id: user_id }),
+			]);
+
+			res.json({ msg: 'User deleted' });
+		} catch (err) {
+			console.error(err.message);
+			res.status(500).send('Server Error');
+		}
+	}
+);
 
 module.exports = router;

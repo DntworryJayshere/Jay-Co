@@ -54,10 +54,10 @@ router.post(
 	}
 );
 
-// @route    GET api/bookings
+// @route    GET api/bookings/admin
 // @desc     Get all bookings for all users
-// @access   Private
-router.get('/', auth, async (req, res) => {
+// @access   Admin*********************************************************
+router.get('/admin', async (req, res) => {
 	try {
 		const bookings = await Booking.find().sort({ date: 1 });
 		res.json(bookings);
@@ -72,8 +72,7 @@ router.get('/', auth, async (req, res) => {
 // @access   Private
 router.get(
 	'/user/:user_id',
-	checkObjectId('user_id'),
-	auth,
+	[auth, checkObjectId('user_id')],
 	async ({ params: { user_id } }, res) => {
 		try {
 			const bookings = await Booking.find({
@@ -117,7 +116,7 @@ router.delete('/:id', [auth, checkObjectId('id')], async (req, res) => {
 		const booking = await Booking.findById(req.params.id);
 
 		if (!booking) {
-			return res.status(404).json({ msg: 'Bookings not found' });
+			return res.status(404).json({ msg: 'Booking not found' });
 		}
 
 		// Check user
@@ -128,6 +127,27 @@ router.delete('/:id', [auth, checkObjectId('id')], async (req, res) => {
 		await booking.remove();
 
 		res.json({ msg: 'Booking removed' });
+	} catch (err) {
+		console.error(err.message);
+
+		res.status(500).send('Server Error');
+	}
+});
+
+// @route    DELETE api/bookings/admin/:id
+// @desc     Delete a booking
+// @access   Admin*********************************************************
+router.delete('/admin/:id/', checkObjectId('id'), async (req, res) => {
+	try {
+		const booking = await Booking.findById(req.params.id);
+
+		if (!booking) {
+			return res.status(404).json({ msg: 'Booking not found' });
+		}
+
+		await booking.remove();
+
+		return res.json({ msg: 'Booking removed' });
 	} catch (err) {
 		console.error(err.message);
 
