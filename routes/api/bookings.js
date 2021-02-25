@@ -7,7 +7,6 @@ const checkObjectId = require('../../middleware/checkObjectId');
 
 const Booking = require('../../models/Booking');
 const User = require('../../models/User');
-const Profile = require('../../models/Profile');
 
 // @route    POST api/bookings
 // @desc     Create a booking
@@ -40,6 +39,8 @@ router.post(
 				appointmentDuration: req.body.appointmentDuration,
 				text: req.body.text,
 				name: user.name,
+				lastName: user.lastName,
+				email: user.email,
 				user: req.user.id,
 			});
 
@@ -54,17 +55,40 @@ router.post(
 );
 
 // @route    GET api/bookings
-// @desc     Get all bookings
+// @desc     Get all bookings for all users
 // @access   Private
 router.get('/', auth, async (req, res) => {
 	try {
-		const bookings = await Booking.find().sort({ date: -1 });
+		const bookings = await Booking.find().sort({ date: 1 });
 		res.json(bookings);
 	} catch (err) {
 		console.error(err.message);
 		res.status(500).send('Server Error');
 	}
 });
+
+// @route    GET api/bookings/user/:user_id
+// @desc     Get all bookings for current user
+// @access   Private
+router.get(
+	'/user/:user_id',
+	checkObjectId('user_id'),
+	auth,
+	async ({ params: { user_id } }, res) => {
+		try {
+			const bookings = await Booking.find({
+				user: user_id,
+			}).sort({ date: 1 });
+
+			if (!bookings) return res.status(400).json({ msg: 'No bookings found' });
+
+			return res.json(bookings);
+		} catch (err) {
+			console.error(err.message);
+			res.status(500).send('Server Error');
+		}
+	}
+);
 
 // @route    GET api/bookings/:id
 // @desc     Get booking by ID

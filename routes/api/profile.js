@@ -81,7 +81,7 @@ router.post(
 // @route    GET api/profile
 // @desc     Get all profiles
 // @access   ADMIN *********************************************************
-router.get('/', async (req, res) => {
+router.get('/admin', async (req, res) => {
 	try {
 		const profiles = await Profile.find().populate('user', [
 			'name',
