@@ -5,9 +5,9 @@ import Spinner from '../layout/Spinner';
 import BookingItem from './BookingItem';
 import { getBookings } from '../../actions/booking';
 
-const Bookings = ({ getBookings, booking: { bookings, loading }, match }) => {
+const Bookings = ({ getBookings, booking: { bookings, loading } }) => {
 	useEffect(() => {
-		getBookings(match.params.id);
+		getBookings();
 	}, [getBookings]);
 
 	return (

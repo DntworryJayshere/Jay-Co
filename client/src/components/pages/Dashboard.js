@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteAccount } from '../../actions/profile';
-import Profile from '../profile/Profile';
+import ProfileCurrent from '../profile/ProfileCurrent';
 import Bookings from '../bookings/Bookings';
 import Button from 'react-bootstrap/Button';
 import Moment from 'react-moment';
@@ -77,7 +77,7 @@ const Dashboard = ({
 									<div className="contextBodyTitle text-left border-top border-dark">
 										Profile Information
 										<br />
-										<Profile />
+										<ProfileCurrent />
 									</div>
 									<br />
 								</Fragment>
@@ -97,7 +97,7 @@ const Dashboard = ({
 								</Fragment>
 							)}
 						</div>
-						{loading || Bookings !== null ? (
+						{/* {loading || Bookings !== null ? (
 							<Fragment>
 								<div className="contextBodyTitle text-left border-top border-dark">
 									Appointment Information
@@ -120,7 +120,7 @@ const Dashboard = ({
 								</div>
 								<br />
 							</Fragment>
-						)}
+						)} */}
 					</div>
 				</div>
 			</div>

@@ -119,9 +119,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
 														<Form.Group>
 															<Form.Check
-																required
 																label="Agree to terms and conditions"
 																feedback="You must agree before submitting."
+																required
 															/>
 														</Form.Group>
 

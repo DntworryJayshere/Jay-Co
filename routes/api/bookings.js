@@ -108,6 +108,55 @@ router.get('/:id', [auth, checkObjectId('id')], async (req, res) => {
 	}
 });
 
+// @route    POST api/bookings/:id
+// @desc     Update booking by ID NEED TO CORRECT THIS ASAP
+// @access   Private
+// router.post(
+// 	'/:id',
+// 	[
+// 		auth,
+// 		check('appointmentDate', 'Appointment Date is Required').not().isEmpty(),
+// 		check('appointmentTime', 'Appointment Time is Required').not().isEmpty(),
+// 		check('appointmentDuration', 'Appointment Duration is Required')
+// 			.not()
+// 			.isEmpty(),
+// 		check('text', 'Text is required').not().isEmpty(),
+// 	],
+// 	async (req, res) => {
+// 		const errors = validationResult(req);
+// 		if (!errors.isEmpty()) {
+// 			return res.status(400).json({ errors: errors.array() });
+// 		}
+// 		try {
+// 			// if (!booking) {
+// 			// 	return res.status(404).json({ msg: 'Booking not found' });
+// 			// }
+// 			const user = await User.findById(req.user.id).select('-password');
+// 			const bookingFields = {
+// 				appointmentDate: req.body.appointmentDate,
+// 				appointmentTime: req.body.appointmentTime,
+// 				appointmentDuration: req.body.appointmentDuration,
+// 				text: req.body.text,
+// 				name: user.name,
+// 				lastName: user.lastName,
+// 				email: user.email,
+// 				user: req.user.id,
+// 			};
+
+// 			const booking = await Booking.findOneAndUpdate(
+// 				{ id: req.params.id },
+// 				{ $set: bookingFields },
+// 				{ new: true, upsert: false, setDefaultsOnInsert: true }
+// 			);
+// 			return res.json(booking);
+// 		} catch (err) {
+// 			console.error(err.message);
+
+// 			res.status(500).send('Server Error');
+// 		}
+// 	}
+// );
+
 // @route    DELETE api/bookings/:id
 // @desc     Delete a booking
 // @access   Private
@@ -134,7 +183,7 @@ router.delete('/:id', [auth, checkObjectId('id')], async (req, res) => {
 	}
 });
 
-// @route    DELETE api/bookings/admin/:id
+// @route    DELETE api/bookings/admin
 // @desc     Delete a booking
 // @access   Admin*********************************************************
 router.delete('/admin/:id/', checkObjectId('id'), async (req, res) => {

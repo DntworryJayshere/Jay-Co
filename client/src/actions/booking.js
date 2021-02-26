@@ -25,10 +25,27 @@ export const getBookingById = (id) => async (dispatch) => {
 	}
 };
 
-// Get all bookings
-export const getBookings = () => async (dispatch) => {
+// Get all bookings for current user
+export const getBookings = (userid) => async (dispatch) => {
 	try {
-		const res = await api.get('/bookings');
+		const res = await api.get(`/bookings/user/${userid}`);
+
+		dispatch({
+			type: GET_BOOKINGS,
+			payload: res.data,
+		});
+	} catch (err) {
+		dispatch({
+			type: BOOKING_ERROR,
+			payload: { msg: err.response.statusText, status: err.response.status },
+		});
+	}
+};
+
+// Get all bookings
+export const getBookingsAdmin = () => async (dispatch) => {
+	try {
+		const res = await api.get('/bookings/admin');
 
 		dispatch({
 			type: GET_BOOKINGS,
