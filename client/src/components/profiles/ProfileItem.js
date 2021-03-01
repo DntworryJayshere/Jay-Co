@@ -7,7 +7,7 @@ import 'moment-timezone';
 
 const ProfileItem = ({
 	profile: {
-		user: { _id },
+		user: { _id, name, lastName, email },
 		dob,
 		phone,
 		address1,
@@ -64,6 +64,9 @@ const ProfileItem = ({
 					<p>Change Zip</p>
 				</Link>
 			</div>
+			<Link to={`/profile/${_id}`} className="btn btn-primary">
+				View Profile
+			</Link>
 		</div>
 	);
 };

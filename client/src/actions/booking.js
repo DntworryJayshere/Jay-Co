@@ -79,7 +79,9 @@ export const deleteBooking = (id) => async (dispatch) => {
 };
 
 // Add booking
-export const addBooking = (formData) => async (dispatch) => {
+export const addBooking = (formData, history, edit = false) => async (
+	dispatch
+) => {
 	try {
 		const res = await api.post('/bookings', formData);
 
@@ -88,8 +90,18 @@ export const addBooking = (formData) => async (dispatch) => {
 			payload: res.data,
 		});
 
-		dispatch(setAlert('Booking Created', 'success'));
+		dispatch(setAlert(edit ? 'Booking Updated' : 'Booking Created', 'success'));
+
+		if (!edit) {
+			history.push('/landing');
+		}
 	} catch (err) {
+		const errors = err.response.data.errors;
+
+		if (errors) {
+			errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
+		}
+
 		dispatch({
 			type: BOOKING_ERROR,
 			payload: { msg: err.response.statusText, status: err.response.status },

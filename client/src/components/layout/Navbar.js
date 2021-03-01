@@ -12,7 +12,7 @@ const Navbarb = ({ auth: { isAuthenticated, loading }, logout }) => {
 		<>
 			<Nav className="justify-content-center">
 				<Nav.Item>
-					<Nav.Link href="/appointment">Schedule Here</Nav.Link>
+					<Nav.Link href="/create-booking">Schedule Here</Nav.Link>
 				</Nav.Item>
 			</Nav>
 			<Nav className="justify-content-center">

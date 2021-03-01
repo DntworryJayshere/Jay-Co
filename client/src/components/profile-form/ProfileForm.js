@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createProfile, getCurrentProfile } from '../../actions/profile';
+import { createProfile, getProfileById } from '../../actions/profile';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -20,13 +20,14 @@ const initialState = {
 const ProfileForm = ({
 	profile: { profile, loading },
 	createProfile,
-	getCurrentProfile,
+	getProfileById,
+	match,
 	history,
 }) => {
 	const [formData, setFormData] = useState(initialState);
 
 	useEffect(() => {
-		if (!profile) getCurrentProfile();
+		if (!profile) getProfileById(match.params.id);
 		if (!loading && profile) {
 			const profileData = { ...initialState };
 			for (const key in profile) {
@@ -34,7 +35,7 @@ const ProfileForm = ({
 			}
 			setFormData(profileData);
 		}
-	}, [loading, getCurrentProfile, profile]);
+	}, [loading, getProfileById, match.params.id, profile]);
 
 	const { dob, phone, address1, address2, city, statee, zip } = formData;
 
@@ -48,7 +49,7 @@ const ProfileForm = ({
 
 	return (
 		<Fragment>
-			<div class="text-center align-self-center topping">
+			<div className="text-center align-self-center topping">
 				<h2>Edit Your Profile</h2>
 			</div>
 			<div className="outerContainer">
@@ -198,7 +199,7 @@ const ProfileForm = ({
 
 ProfileForm.propTypes = {
 	createProfile: PropTypes.func.isRequired,
-	getCurrentProfile: PropTypes.func.isRequired,
+	getProfileById: PropTypes.func.isRequired,
 	profile: PropTypes.object.isRequired,
 };
 
@@ -206,6 +207,6 @@ const mapStateToProps = (state) => ({
 	profile: state.profile,
 });
 
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+export default connect(mapStateToProps, { createProfile, getProfileById })(
 	ProfileForm
 );
