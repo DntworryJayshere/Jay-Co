@@ -1,39 +1,20 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addBooking, getBookingById } from '../../actions/booking';
+import { addBooking } from '../../actions/booking';
 
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-const initialState = {
-	appointmentDate: '',
-	appointmentTime: '',
-	appointmentDuration: '',
-	text: '',
-};
-
-const BookingForm = ({
-	booking: { booking, loading },
-	addBooking,
-	getBookingById,
-	match,
-	history,
-}) => {
-	const [formData, setFormData] = useState(initialState);
-
-	useEffect(() => {
-		if (!booking) getBookingById(match.params.id);
-		if (!loading && booking) {
-			const bookingData = { ...initialState };
-			for (const key in booking) {
-				if (key in bookingData) bookingData[key] = booking[key];
-			}
-			setFormData(bookingData);
-		}
-	}, [loading, getBookingById, match.params.id, booking]);
+const BookingForm = ({ addBooking }) => {
+	const [formData, setFormData] = useState({
+		appointmentDate: '',
+		appointmentTime: '',
+		appointmentDuration: '',
+		text: '',
+	});
 
 	const {
 		appointmentDate,
@@ -45,9 +26,9 @@ const BookingForm = ({
 	const onChange = (e) =>
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 
-	const onSubmit = (e) => {
+	const onSubmit = async (e) => {
 		e.preventDefault();
-		addBooking(formData, history, booking ? true : false);
+		addBooking({ appointmentDate, appointmentTime, appointmentDuration, text });
 	};
 
 	return (
@@ -164,15 +145,7 @@ const BookingForm = ({
 
 BookingForm.propTypes = {
 	addBooking: PropTypes.func.isRequired,
-	getBookingById: PropTypes.func.isRequired,
-	booking: PropTypes.object.isRequired,
 	isAuthenticated: PropTypes.bool,
 };
 
-const mapStateToProps = (state) => ({
-	booking: state.booking,
-});
-
-export default connect(mapStateToProps, { addBooking, getBookingById })(
-	BookingForm
-);
+export default connect(null, { addBooking })(BookingForm);

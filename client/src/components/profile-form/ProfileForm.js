@@ -48,9 +48,6 @@ const ProfileForm = ({
 
 	return (
 		<Fragment>
-			<div class="text-center align-self-center topping">
-				<h2>Edit Your Profile</h2>
-			</div>
 			<div className="outerContainer">
 				<div className="col-md-12 mx-auto p-0">
 					<div className="container py-1">

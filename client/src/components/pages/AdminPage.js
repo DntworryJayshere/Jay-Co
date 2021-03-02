@@ -15,7 +15,7 @@ class Admin extends Component {
 								</div>
 
 								<div className="contextBodyTitle text-left border-top border-dark">
-									Profile Information
+									Account & Profile Information
 									<br />
 									<ProfilesAdmin />
 								</div>

@@ -5,7 +5,7 @@ import Spinner from '../layout/Spinner';
 import ProfileItem from '../profiles/ProfileItem';
 import { getCurrentProfile } from '../../actions/profile';
 
-const Profile = ({ getCurrentProfile, profile: { profile }, auth }) => {
+const Profile = ({ getCurrentProfile, profile: { profile } }) => {
 	useEffect(() => {
 		getCurrentProfile();
 	}, []);
@@ -16,11 +16,7 @@ const Profile = ({ getCurrentProfile, profile: { profile }, auth }) => {
 				<Spinner />
 			) : (
 				<Fragment>
-					{auth.isAuthenticated &&
-						auth.loading === false &&
-						auth.user._id === profile.user._id && (
-							<ProfileItem profile={profile} />
-						)}
+					<ProfileItem profile={profile} />
 				</Fragment>
 			)}
 		</Fragment>
@@ -30,11 +26,9 @@ const Profile = ({ getCurrentProfile, profile: { profile }, auth }) => {
 Profile.propTypes = {
 	getCurrentProfile: PropTypes.func.isRequired,
 	profile: PropTypes.object.isRequired,
-	auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-	auth: state.auth,
 	profile: state.profile,
 });
 
