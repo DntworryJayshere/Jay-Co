@@ -7,22 +7,18 @@ import { getBookings } from '../../actions/booking';
 
 const Bookings = ({ getBookings, booking: { bookings, loading }, match }) => {
 	useEffect(() => {
-		getBookings(match.params.id);
-	}, [getBookings]);
+		getBookings(match.params._id);
+	}, [getBookings, match.params._id]);
 
-	return (
+	return loading || bookings === null ? (
+		<Spinner />
+	) : (
 		<Fragment>
-			{loading ? (
-				<Spinner />
-			) : (
-				<Fragment>
-					<div>
-						{bookings.map((booking) => (
-							<BookingItem key={booking._id} booking={booking} />
-						))}
-					</div>
-				</Fragment>
-			)}
+			<div>
+				{bookings.map((booking) => (
+					<BookingItem key={booking._id} booking={booking} />
+				))}
+			</div>
 		</Fragment>
 	);
 };

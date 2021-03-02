@@ -166,10 +166,10 @@ router.delete('/:id', [auth, checkObjectId('id')], async (req, res) => {
 	}
 });
 
-// @route    DELETE api/bookings/admin
+// @route    DELETE api/bookings/admin/:id
 // @desc     Delete a booking
 // @access   Admin*********************************************************
-router.delete('/admin/:id/', checkObjectId('id'), async (req, res) => {
+router.delete('/admin/:id', checkObjectId('id'), async (req, res) => {
 	try {
 		const booking = await Booking.findById(req.params.id);
 

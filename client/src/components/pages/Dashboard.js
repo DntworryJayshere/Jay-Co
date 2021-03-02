@@ -102,7 +102,7 @@ const Dashboard = ({
 								<div className="contextBodyTitle text-left border-top border-dark">
 									Appointment Information
 									<br />
-									<Bookings booking={booking} />
+									<Bookings />
 								</div>
 								<br />
 							</Fragment>

@@ -1,6 +1,7 @@
 import {
 	GET_BOOKING,
 	GET_BOOKINGS,
+	GET_BOOKINGSADMIN,
 	BOOKING_ERROR,
 	DELETE_BOOKING,
 	ADD_BOOKING,
@@ -24,6 +25,14 @@ export default function (state = initialState, action) {
 				loading: false,
 			};
 		case GET_BOOKINGS:
+			return {
+				...state,
+				bookings: state.bookings.map(
+					(booking) => booking.user._id === payload.user.id
+				),
+				loading: false,
+			};
+		case GET_BOOKINGSADMIN:
 			return {
 				...state,
 				bookings: payload,

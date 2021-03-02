@@ -3,6 +3,7 @@ import { setAlert } from './alert';
 import {
 	GET_BOOKING,
 	GET_BOOKINGS,
+	GET_BOOKINGSADMIN,
 	BOOKING_ERROR,
 	DELETE_BOOKING,
 	ADD_BOOKING,
@@ -48,7 +49,7 @@ export const getBookingsAdmin = () => async (dispatch) => {
 		const res = await api.get('/bookings/admin');
 
 		dispatch({
-			type: GET_BOOKINGS,
+			type: GET_BOOKINGSADMIN,
 			payload: res.data,
 		});
 	} catch (err) {
@@ -63,6 +64,24 @@ export const getBookingsAdmin = () => async (dispatch) => {
 export const deleteBooking = (id) => async (dispatch) => {
 	try {
 		await api.delete(`/bookings/${id}`);
+
+		dispatch({
+			type: DELETE_BOOKING,
+			payload: id,
+		});
+
+		dispatch(setAlert('Booking Removed', 'success'));
+	} catch (err) {
+		dispatch({
+			type: BOOKING_ERROR,
+			payload: { msg: err.response.statusText, status: err.response.status },
+		});
+	}
+};
+
+export const deleteBookingAdmin = (id) => async (dispatch) => {
+	try {
+		await api.delete(`/bookings/admin/${id}`);
 
 		dispatch({
 			type: DELETE_BOOKING,

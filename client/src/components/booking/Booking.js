@@ -5,20 +5,16 @@ import Spinner from '../layout/Spinner';
 import BookingItem from '../bookings/BookingItem';
 import { getBookingById } from '../../actions/booking';
 
-const Booking = ({ getBookingById, booking: { booking }, match }) => {
+const Booking = ({ getBookingById, booking: { booking, loading }, match }) => {
 	useEffect(() => {
 		getBookingById(match.params.id);
-	}, []);
+	}, [getBookingById, match.params.id]);
 
-	return (
+	return loading || booking === null ? (
+		<Spinner />
+	) : (
 		<Fragment>
-			{booking === null ? (
-				<Spinner />
-			) : (
-				<Fragment>
-					<BookingItem booking={booking} showActions={false} />
-				</Fragment>
-			)}
+			<BookingItem booking={booking} />
 		</Fragment>
 	);
 };

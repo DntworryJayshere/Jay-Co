@@ -19,12 +19,13 @@ const BookingForm = ({
 	booking: { booking, loading },
 	addBooking,
 	getBookingById,
+	match,
 	history,
 }) => {
 	const [formData, setFormData] = useState(initialState);
 
 	useEffect(() => {
-		if (!booking) getBookingById();
+		if (!booking) getBookingById(match.params.id);
 		if (!loading && booking) {
 			const bookingData = { ...initialState };
 			for (const key in booking) {
@@ -32,7 +33,7 @@ const BookingForm = ({
 			}
 			setFormData(bookingData);
 		}
-	}, [loading, getBookingById, booking]);
+	}, [loading, getBookingById, match.params.id, booking]);
 
 	const {
 		appointmentDate,

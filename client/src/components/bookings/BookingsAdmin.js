@@ -2,13 +2,13 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
-import BookingItem from './BookingItem';
-import { getBookings } from '../../actions/booking';
+import BookingItemAdmin from './BookingItemAdmin';
+import { getBookingsAdmin } from '../../actions/booking';
 
-const Bookings = ({ getBookings, booking: { bookings, loading } }) => {
+const Bookings = ({ getBookingsAdmin, booking: { bookings, loading } }) => {
 	useEffect(() => {
-		getBookings();
-	}, [getBookings]);
+		getBookingsAdmin();
+	}, [getBookingsAdmin]);
 
 	return (
 		<Fragment>
@@ -18,7 +18,7 @@ const Bookings = ({ getBookings, booking: { bookings, loading } }) => {
 				<Fragment>
 					<div>
 						{bookings.map((booking) => (
-							<BookingItem key={booking._id} booking={booking} />
+							<BookingItemAdmin key={booking._id} booking={booking} />
 						))}
 					</div>
 				</Fragment>
@@ -28,7 +28,7 @@ const Bookings = ({ getBookings, booking: { bookings, loading } }) => {
 };
 
 Bookings.propTypes = {
-	getBookings: PropTypes.func.isRequired,
+	getBookingsAdmin: PropTypes.func.isRequired,
 	booking: PropTypes.object.isRequired,
 };
 
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => ({
 	booking: state.booking,
 });
 
-export default connect(mapStateToProps, { getBookings })(Bookings);
+export default connect(mapStateToProps, { getBookingsAdmin })(Bookings);

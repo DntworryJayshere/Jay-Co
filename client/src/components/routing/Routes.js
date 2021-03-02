@@ -5,7 +5,8 @@ import Alert from '../layout/Alert';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
-import Profile from '../profile/Profile';
+import ProfileAdmin from '../profile/ProfileAdmin';
+import Booking from '../booking/Booking';
 
 import CreateBooking from '../pages/CreateBooking';
 import EditBooking from '../pages/EditBooking';
@@ -28,7 +29,8 @@ const Routes = (props) => {
 				<Route exact path="/login" component={Login} />
 				<Route exact path="/samplePage" component={SamplePage} />
 				<Route exact path="/adminPage" component={AdminPage} />
-				<Route exact path="/profile/:id" component={Profile} />
+				<Route exact path="/profile/:id" component={ProfileAdmin} />
+				<Route exact path="/booking/:id" component={Booking} />
 
 				<PrivateRoute exact path="/dashboard" component={Dashboard} />
 

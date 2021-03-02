@@ -2,14 +2,14 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { deleteBooking } from '../../actions/booking';
+import { deleteBookingAdmin } from '../../actions/booking';
 import Button from 'react-bootstrap/Button';
 import Moment from 'react-moment';
 import moment from 'moment';
 import 'moment-timezone';
 
 const BookingItem = ({
-	deleteBooking,
+	deleteBookingAdmin,
 	booking: {
 		_id,
 		text,
@@ -57,10 +57,13 @@ const BookingItem = ({
 					<p>Change Comments</p>
 				</Link>
 			</div>
+			<Link to={`/booking/${_id}`} className="btn btn-primary">
+				View booking
+			</Link>
 			<Button
 				className="contextBodyProfile"
 				variant="danger"
-				onClick={() => deleteBooking(_id)}
+				onClick={() => deleteBookingAdmin(_id)}
 			>
 				<i className="fas fa-trash" /> Delete Booking{' '}
 			</Button>
@@ -70,7 +73,7 @@ const BookingItem = ({
 
 BookingItem.propTypes = {
 	booking: PropTypes.object.isRequired,
-	deleteBooking: PropTypes.func.isRequired,
+	deleteBookingAdmin: PropTypes.func.isRequired,
 };
 
-export default connect(null, { deleteBooking })(BookingItem);
+export default connect(null, { deleteBookingAdmin })(BookingItem);
