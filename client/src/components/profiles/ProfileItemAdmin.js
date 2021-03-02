@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import moment from 'moment';
 import 'moment-timezone';
 
-const ProfileItem = ({
+const ProfileItemAdmin = ({
 	profile: {
-		user: { _id, name, lastName, email },
+		user: { name, lastName, email },
 		dob,
 		phone,
 		address1,
@@ -19,11 +18,9 @@ const ProfileItem = ({
 }) => {
 	return (
 		<div>
-			<Link to={`/profile/${_id}`}>
-				<div className="contextBodyProfile">
-					Full Name: {name} {lastName}
-				</div>
-			</Link>
+			<div className="contextBodyProfile">
+				Full Name: {name} {lastName}
+			</div>
 			<div className="contextBodyProfile">Email: {email}</div>
 			<div className="contextBodyProfile">
 				Date of Birth:{' '}
@@ -53,8 +50,8 @@ const ProfileItem = ({
 	);
 };
 
-ProfileItem.propTypes = {
+ProfileItemAdmin.propTypes = {
 	profile: PropTypes.object.isRequired,
 };
 
-export default ProfileItem;
+export default ProfileItemAdmin;

@@ -51,11 +51,14 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 														<h1 className="h4 text-gray-900 mb-4">
 															Create Your Account
 														</h1>
-														<div className="text-center mb-4">
-															Already registered?
-															<Link to="/Login">Login</Link>
-														</div>
+														<span>
+															WARNING: Refrain from entering sensitive
+															information as the administrative routes of this
+															application are public. This application should be
+															viewed as a sample.
+														</span>
 													</div>
+													<br />
 													<Form className="form" onSubmit={onSubmit}>
 														<Form.Group controlId="Email">
 															<Form.Label>Email address</Form.Label>
@@ -135,6 +138,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 															</Button>
 														</div>
 													</Form>
+													<br />
+													<div className="text-center mb-4">
+														Already registered?
+														<Link to="/Login">Login</Link>
+													</div>
 												</div>
 											</div>
 										</div>

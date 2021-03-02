@@ -30,27 +30,13 @@ const Dashboard = ({
 								<br />
 								<div className="contextBodyProfile">
 									Email: <span>{user && user.email}</span>
-									<Link to="/edit-account" className="editOption">
-										<p>Change Email</p>
-									</Link>
 								</div>
-								<div className="contextBodyProfile">
-									Password: *****
-									<Link to="/edit-account" className="editOption">
-										<p>Change Password</p>
-									</Link>
-								</div>
+								<div className="contextBodyProfile">Password: *****</div>
 								<div className="contextBodyProfile">
 									First Name: <span>{user && user.name}</span>
-									<Link to="/edit-account" className="editOption">
-										<p>Change First Name</p>
-									</Link>
 								</div>
 								<div className="contextBodyProfile">
 									Last Name: <span>{user && user.lastName}</span>
-									<Link to="/edit-account" className="editOption">
-										<p>Change Last Name</p>
-									</Link>
 								</div>
 								<div className="contextBodyProfile">
 									Created Date:{' '}

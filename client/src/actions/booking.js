@@ -98,9 +98,7 @@ export const deleteBookingAdmin = (id) => async (dispatch) => {
 };
 
 // Add booking
-export const addBooking = (formData, history, edit = false) => async (
-	dispatch
-) => {
+export const addBooking = (formData) => async (dispatch) => {
 	try {
 		const res = await api.post('/bookings', formData);
 
@@ -109,18 +107,8 @@ export const addBooking = (formData, history, edit = false) => async (
 			payload: res.data,
 		});
 
-		dispatch(setAlert(edit ? 'Booking Updated' : 'Booking Created', 'success'));
-
-		if (!edit) {
-			history.push('/landing');
-		}
+		dispatch(setAlert('Booking Created', 'success'));
 	} catch (err) {
-		const errors = err.response.data.errors;
-
-		if (errors) {
-			errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
-		}
-
 		dispatch({
 			type: BOOKING_ERROR,
 			payload: { msg: err.response.statusText, status: err.response.status },

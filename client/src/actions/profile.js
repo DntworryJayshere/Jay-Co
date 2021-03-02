@@ -43,23 +43,6 @@ export const getProfileById = (userId) => async (dispatch) => {
 	}
 };
 
-// // Get profile by ID
-// export const getProfileById = (userId) => async (dispatch) => {
-// 	try {
-// 		const res = await api.get(`/profile/admin/${userId}`);
-
-// 		dispatch({
-// 			type: GET_PROFILE,
-// 			payload: res.data,
-// 		});
-// 	} catch (err) {
-// 		dispatch({
-// 			type: PROFILE_ERROR,
-// 			payload: { msg: err.response.statusText, status: err.response.status },
-// 		});
-// 	}
-// };
-
 // Get all profiles
 export const getProfiles = () => async (dispatch) => {
 	dispatch({ type: CLEAR_PROFILE });
@@ -120,6 +103,29 @@ export const deleteAccount = () => async (dispatch) => {
 			dispatch({ type: ACCOUNT_DELETED });
 
 			dispatch(setAlert('Your account has been permanently deleted'));
+		} catch (err) {
+			dispatch({
+				type: PROFILE_ERROR,
+				payload: { msg: err.response.statusText, status: err.response.status },
+			});
+		}
+	}
+};
+
+// Delete account & profile as administrator
+export const deleteAccountAdmin = (_id) => async (dispatch) => {
+	if (window.confirm('Are you sure? This can NOT be undone!')) {
+		try {
+			await api.delete(`/profile/admin/${_id}`);
+
+			dispatch({ type: CLEAR_PROFILE });
+			dispatch({ type: ACCOUNT_DELETED });
+
+			dispatch(
+				setAlert(
+					'This account, profile, and bookings have been permanently deleted'
+				)
+			);
 		} catch (err) {
 			dispatch({
 				type: PROFILE_ERROR,
