@@ -6,16 +6,7 @@ import moment from 'moment';
 import 'moment-timezone';
 
 const ProfileItem = ({
-	profile: {
-		user: {},
-		dob,
-		phone,
-		address1,
-		address2,
-		city,
-		statee,
-		zip,
-	},
+	profile: { dob, phone, address1, address2, city, statee, zip },
 }) => {
 	return (
 		<div>
