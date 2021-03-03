@@ -15,16 +15,14 @@ class Admin extends Component {
 								</div>
 
 								<div className="contextBodyTitle text-left border-top border-dark">
-									Account & Profile Information
-									<br />
+									All Account & Profile Information
 									<ProfilesAdmin />
 								</div>
+								<br />
 								<div className="contextBodyTitle text-left border-top border-dark">
-									Booking Information
-									<br />
+									All Booking Information
 									<BookingsAdmin />
 								</div>
-
 								<br />
 							</div>
 						</div>

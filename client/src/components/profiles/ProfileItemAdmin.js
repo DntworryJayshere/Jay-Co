@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import moment from 'moment';
 import 'moment-timezone';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const ProfileItemAdmin = ({
 	profile: {
@@ -17,36 +19,38 @@ const ProfileItemAdmin = ({
 	},
 }) => {
 	return (
-		<div>
-			<div className="contextBodyProfile">
-				Full Name: {name} {lastName}
-			</div>
-			<div className="contextBodyProfile">Email: {email}</div>
-			<div className="contextBodyProfile">
-				Date of Birth:{' '}
-				<span>
-					<Moment format="MMM-D-YYYY">{moment.utc(dob)}</Moment>
-				</span>
-			</div>
-			<div className="contextBodyProfile">
-				Phone: <span>{phone}</span>
-			</div>
-			<div className="contextBodyProfile">
-				Address1: <span>{address1}</span>
-			</div>
-			<div className="contextBodyProfile">
-				Address2: <span>{address2}</span>
-			</div>
-			<div className="contextBodyProfile">
-				City: <span>{city}</span>
-			</div>
-			<div className="contextBodyProfile">
-				State: <span>{statee}</span>
-			</div>
-			<div className="contextBodyProfile">
-				Zip: <span>{zip}</span>
-			</div>
-		</div>
+		<Card>
+			<Card.Header>
+				Name: {name} {lastName}
+			</Card.Header>
+			<ListGroup className="list-group-flush">
+				<ListGroup.Item>Email: {email}</ListGroup.Item>
+				<ListGroup.Item>
+					Phone: <span>{phone}</span>
+				</ListGroup.Item>
+				<ListGroup.Item>
+					Date of Birth:{' '}
+					<span>
+						<Moment format="MMM-D-YYYY">{moment.utc(dob)}</Moment>
+					</span>
+				</ListGroup.Item>
+				<ListGroup.Item>
+					Address1: <span>{address1}</span>
+				</ListGroup.Item>
+				<ListGroup.Item>
+					Address2: <span>{address2}</span>
+				</ListGroup.Item>
+				<ListGroup.Item>
+					City: <span>{city}</span>
+				</ListGroup.Item>
+				<ListGroup.Item>
+					State: <span>{statee}</span>
+				</ListGroup.Item>
+				<ListGroup.Item>
+					Zip: <span>{zip}</span>
+				</ListGroup.Item>
+			</ListGroup>
+		</Card>
 	);
 };
 

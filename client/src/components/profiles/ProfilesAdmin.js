@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import ProfileItemAdmin from './ProfileItemAdmin';
 import { getProfiles } from '../../actions/profile';
+import CardColumns from 'react-bootstrap/CardColumns';
 
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 	useEffect(() => {
@@ -16,17 +17,16 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 				<Spinner />
 			) : (
 				<Fragment>
-					<div>
+					<CardColumns>
 						{profiles.length > 0 ? (
 							profiles.map((profile) => (
-								<>
-									<ProfileItemAdmin key={profile._id} profile={profile} />
-								</>
+								<ProfileItemAdmin key={profile._id} profile={profile} />
 							))
 						) : (
 							<h4>No profiles found...</h4>
 						)}
-					</div>
+					</CardColumns>
+					<br />
 				</Fragment>
 			)}
 		</Fragment>

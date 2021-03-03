@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 import Moment from 'react-moment';
 import moment from 'moment';
 import 'moment-timezone';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const BookingItem = ({
 	deleteBookingAdmin,
@@ -17,38 +19,34 @@ const BookingItem = ({
 		appointmentDuration,
 		name,
 		lastName,
-		email,
 	},
 }) => (
 	<Fragment>
-		<div>
-			<div className="contextBodyProfile">
-				Full Name: {name} {lastName}
-			</div>
-			<div className="contextBodyProfile">email: {email}</div>
-			<div className="contextBodyProfile">
-				Appointment Date:{' '}
-				<span>
-					<Moment format="MMM-D-YYYY">{moment.utc(appointmentDate)}</Moment>
-				</span>
-			</div>
-			<div className="contextBodyProfile">
-				Appointment Time: <span> {appointmentTime}</span>
-			</div>
-			<div className="contextBodyProfile">
-				Appointment Duration: <span> {appointmentDuration}</span>
-			</div>
-			<div className="contextBodyProfile">
-				Appointment Comments: <span> {text}</span>
-			</div>
-			<Button
-				className="contextBodyProfile"
-				variant="danger"
-				onClick={() => deleteBookingAdmin(_id)}
-			>
+		<Card>
+			<Card.Header>
+				Name: {name} {lastName}
+			</Card.Header>
+			<ListGroup className="list-group-flush">
+				<ListGroup.Item>
+					Appointment Date:{' '}
+					<span>
+						<Moment format="MMM-D-YYYY">{moment.utc(appointmentDate)}</Moment>
+					</span>
+				</ListGroup.Item>
+				<ListGroup.Item>
+					Appointment Time: <span> {appointmentTime}</span>
+				</ListGroup.Item>
+				<ListGroup.Item>
+					Appointment Duration: <span> {appointmentDuration}</span>
+				</ListGroup.Item>
+				<ListGroup.Item>
+					Appointment Comments: <span> {text}</span>
+				</ListGroup.Item>
+			</ListGroup>
+			<Button variant="danger" onClick={() => deleteBookingAdmin(_id)}>
 				<i className="fas fa-trash" /> Delete Booking{' '}
 			</Button>
-		</div>
+		</Card>
 	</Fragment>
 );
 

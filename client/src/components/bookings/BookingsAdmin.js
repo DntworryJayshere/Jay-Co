@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import BookingItemAdmin from './BookingItemAdmin';
 import { getBookingsAdmin } from '../../actions/booking';
+import CardColumns from 'react-bootstrap/CardColumns';
 
 const Bookings = ({ getBookingsAdmin, booking: { bookings, loading } }) => {
 	useEffect(() => {
@@ -16,11 +17,12 @@ const Bookings = ({ getBookingsAdmin, booking: { bookings, loading } }) => {
 				<Spinner />
 			) : (
 				<Fragment>
-					<div>
+					<CardColumns>
 						{bookings.map((booking) => (
 							<BookingItemAdmin key={booking._id} booking={booking} />
 						))}
-					</div>
+					</CardColumns>
+					<br />
 				</Fragment>
 			)}
 		</Fragment>
