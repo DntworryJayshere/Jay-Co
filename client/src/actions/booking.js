@@ -1,6 +1,7 @@
 import api from '../utils/api';
 import { setAlert } from './alert';
 import {
+	// GET_BOOKING,
 	GET_BOOKINGS,
 	GET_BOOKINGSADMIN,
 	BOOKING_ERROR,

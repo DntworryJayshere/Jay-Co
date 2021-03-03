@@ -27,9 +27,7 @@ export default function (state = initialState, action) {
 		case GET_BOOKINGS:
 			return {
 				...state,
-				bookings: state.bookings.map(
-					(booking) => booking.user._id === payload.user.id
-				),
+				bookings: payload,
 				loading: false,
 			};
 		case GET_BOOKINGSADMIN:

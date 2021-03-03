@@ -11,8 +11,8 @@ const Bookings = ({
 	auth: { user },
 }) => {
 	useEffect(() => {
-		getBookings(user.id);
-	}, [getBookings, user.id]);
+		getBookings(user._id);
+	}, [getBookings, user._id]);
 
 	return loading || bookings === null ? (
 		<Spinner />
@@ -20,7 +20,7 @@ const Bookings = ({
 		<Fragment>
 			<div>
 				{bookings.map((booking) => (
-					<BookingItem key={booking._id} booking={booking} />
+					<BookingItem key={booking.id} booking={booking} />
 				))}
 			</div>
 		</Fragment>
