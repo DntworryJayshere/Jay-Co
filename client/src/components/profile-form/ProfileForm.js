@@ -36,6 +36,16 @@ const ProfileForm = ({
 		}
 	}, [loading, getCurrentProfile, profile]);
 
+	useEffect(() => {
+		if (!profile) getCurrentProfile();
+		if (!loading && profile) {
+			const profileData = { ...initialState };
+			for (const key in profile) {
+				if (key in profileData) profileData[key] = profile[key];
+			}
+		}
+	}, [loading, getCurrentProfile, profile]);
+
 	const { dob, phone, address1, address2, city, statee, zip } = formData;
 
 	const onChange = (e) =>
@@ -45,7 +55,6 @@ const ProfileForm = ({
 		e.preventDefault();
 		createProfile(formData, history, profile ? true : false);
 	};
-
 	return (
 		<Fragment>
 			<div className="outerContainer">

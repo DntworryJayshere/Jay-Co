@@ -1,5 +1,6 @@
 import {
 	REGISTER_SUCCESS,
+	REGISTER_SUBSCRIBER,
 	//REGISTER_FAIL,
 	USER_LOADED,
 	AUTH_ERROR,
@@ -14,12 +15,19 @@ const initialState = {
 	isAuthenticated: null,
 	loading: true,
 	user: null,
+	subscriber: null,
 };
 
 export default function (state = initialState, action) {
 	const { type, payload } = action;
 
 	switch (type) {
+		case REGISTER_SUBSCRIBER:
+			return {
+				...state,
+				subscriber: payload,
+				loading: false,
+			};
 		case USER_LOADED:
 			return {
 				...state,

@@ -14,7 +14,7 @@ const Dashboard = ({
 	deleteAccount,
 	auth: { user },
 	profile: { profile, loading },
-	booking: { booking },
+	booking: { bookings },
 }) => {
 	return (
 		<div className="outerContainer">
@@ -83,16 +83,7 @@ const Dashboard = ({
 								</Fragment>
 							)}
 
-							<Fragment>
-								<div className="contextBodyTitle text-left border-top border-dark">
-									Appointment Information
-									<br />
-									<Bookings />
-								</div>
-								<br />
-							</Fragment>
-
-							{/* {loading || booking !== null ? (
+							{loading || bookings !== null ? (
 								<Fragment>
 									<div className="contextBodyTitle text-left border-top border-dark">
 										Appointment Information
@@ -104,18 +95,18 @@ const Dashboard = ({
 							) : (
 								<Fragment>
 									<div className="contextBodyTitle text-left border-top border-dark">
-										Appointment Information
+										Profile Information
 										<br />
 										<div className="contextBodyProfile">
-											You have not have any Appointments, please set one
-											<Link to="/appointment">
-												<Button variant="success">Create Appointment</Button>
+											You have not yet setup a profile, please add some info
+											<Link to="/create-booking">
+												<Button variant="success">Create Profile</Button>
 											</Link>
 										</div>
 									</div>
 									<br />
 								</Fragment>
-							)} */}
+							)}
 						</div>
 					</div>
 				</div>

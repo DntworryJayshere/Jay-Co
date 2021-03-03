@@ -64,9 +64,7 @@ export const getProfiles = () => async (dispatch) => {
 };
 
 // Create or update profile
-export const createProfile = (formData, history, edit = false) => async (
-	dispatch
-) => {
+export const createProfile = (formData) => async (dispatch) => {
 	try {
 		const res = await api.post('/profile', formData);
 
@@ -75,11 +73,7 @@ export const createProfile = (formData, history, edit = false) => async (
 			payload: res.data,
 		});
 
-		dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
-
-		if (!edit) {
-			history.push('/dashboard');
-		}
+		dispatch(setAlert('Profile Updated', 'success'));
 	} catch (err) {
 		const errors = err.response.data.errors;
 
@@ -103,7 +97,9 @@ export const deleteAccount = () => async (dispatch) => {
 			dispatch({ type: CLEAR_PROFILE });
 			dispatch({ type: ACCOUNT_DELETED });
 
-			dispatch(setAlert('Your account has been permanently deleted'));
+			dispatch(
+				setAlert('Your account has been permanently deleted', 'success')
+			);
 		} catch (err) {
 			dispatch({
 				type: PROFILE_ERROR,

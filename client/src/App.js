@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
+import ScrollToTop from './components/layout/ScrollToTop';
 import Landing from './components/pages/Landing';
-import Footer from './components/layout/Footer';
 import Routes from './components/routing/Routes';
 
 // Redux
@@ -33,11 +33,11 @@ const App = () => {
 			<Router>
 				<Fragment>
 					<Navbar />
+					<ScrollToTop />
 					<Switch>
 						<Route exact path="/" component={Landing} />
 						<Route component={Routes} />
 					</Switch>
-					<Footer />
 				</Fragment>
 			</Router>
 		</Provider>
