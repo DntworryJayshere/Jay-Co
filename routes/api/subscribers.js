@@ -31,9 +31,10 @@ router.post(
 			});
 
 			await subscriber.save();
+			return res.json(subscriber);
 		} catch (err) {
 			console.error(err.message);
-			res.status(500).send('Server error');
+			return res.status(500).send('Server error');
 		}
 	}
 );
