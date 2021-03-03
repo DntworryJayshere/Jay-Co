@@ -9,7 +9,7 @@ import 'moment-timezone';
 
 const BookingItem = ({
 	deleteBooking,
-	booking: { id, text, appointmentDate, appointmentTime, appointmentDuration },
+	booking: { _id, text, appointmentDate, appointmentTime, appointmentDuration },
 }) => (
 	<Fragment>
 		<div>
@@ -31,7 +31,7 @@ const BookingItem = ({
 			<Button
 				className="contextBodyProfile"
 				variant="danger"
-				onClick={() => deleteBooking(id)}
+				onClick={() => deleteBooking(_id)}
 			>
 				<i className="fas fa-trash" /> Delete Booking{' '}
 			</Button>
