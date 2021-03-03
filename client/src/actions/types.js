@@ -15,7 +15,7 @@ export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
 
-export const GET_BOOKING = 'GET_BOOKING';
+// export const GET_BOOKING = 'GET_BOOKING';
 export const GET_BOOKINGS = 'GET_BOOKINGS';
 export const GET_BOOKINGSADMIN = 'GET_BOOKINGSADMIN';
 export const BOOKING_ERROR = 'BOOKING_ERROR';

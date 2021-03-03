@@ -51,38 +51,6 @@ router.post(
 			console.error(err.message);
 			res.status(500).send('Server Error');
 		}
-		// try {
-		// 	const user = await User.findById(req.user.id).select('-password');
-
-		// 	const {
-		// 		appointmentDate,
-		// 		appointmentTime,
-		// 		appointmentDuration,
-		// 		text,
-		// 	} = req.body;
-
-		// 	const bookingFields = {
-		// 		appointmentDate,
-		// 		appointmentTime,
-		// 		appointmentDuration,
-		// 		text,
-		// 		name: user.name,
-		// 		lastName: user.lastName,
-		// 		email: user.email,
-		// 		user: req.user.id,
-		// 	};
-
-		// 	// Using upsert option (creates new doc if no match is found):
-		// 	let booking = await Booking.findOneAndUpdate(
-		// 		{ id },
-		// 		{ $set: bookingFields },
-		// 		{ new: true, upsert: true, setDefaultsOnInsert: true }
-		// 	);
-		// 	res.json(booking);
-		// } catch (err) {
-		// 	console.error(err.message);
-		// 	return res.status(500).send('Server Error');
-		// }
 	}
 );
 
@@ -103,12 +71,12 @@ router.get('/admin', async (req, res) => {
 // @desc     Get all bookings for current user
 // @access   Private
 router.get(
-	'/user/:user_id',
-	[auth, checkObjectId('user_id')],
-	async ({ params: { user_id } }, res) => {
+	'/user/:_id',
+	[auth, checkObjectId('_id')],
+	async ({ params: { _id } }, res) => {
 		try {
 			const bookings = await Booking.find({
-				user: user_id,
+				user: _id,
 			}).sort({ date: 1 });
 
 			if (!bookings) return res.status(400).json({ msg: 'No bookings found' });

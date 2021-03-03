@@ -1,7 +1,6 @@
 import api from '../utils/api';
 import { setAlert } from './alert';
 import {
-	GET_BOOKING,
 	GET_BOOKINGS,
 	GET_BOOKINGSADMIN,
 	BOOKING_ERROR,
@@ -9,27 +8,28 @@ import {
 	ADD_BOOKING,
 } from './types';
 
+// *Route is functional but not currently in use by the application
 // Get booking by ID
-export const getBookingById = (id) => async (dispatch) => {
-	try {
-		const res = await api.get(`/bookings/${id}`);
+// export const getBookingById = (id) => async (dispatch) => {
+// 	try {
+// 		const res = await api.get(`/bookings/${id}`);
 
-		dispatch({
-			type: GET_BOOKING,
-			payload: res.data,
-		});
-	} catch (err) {
-		dispatch({
-			type: BOOKING_ERROR,
-			payload: { msg: err.response.statusText, status: err.response.status },
-		});
-	}
-};
+// 		dispatch({
+// 			type: GET_BOOKING,
+// 			payload: res.data,
+// 		});
+// 	} catch (err) {
+// 		dispatch({
+// 			type: BOOKING_ERROR,
+// 			payload: { msg: err.response.statusText, status: err.response.status },
+// 		});
+// 	}
+// };
 
 // Get all bookings for current user
-export const getBookings = (userid) => async (dispatch) => {
+export const getBookings = (_id) => async (dispatch) => {
 	try {
-		const res = await api.get(`/bookings/user/${userid}`);
+		const res = await api.get(`/bookings/user/${_id}`);
 
 		dispatch({
 			type: GET_BOOKINGS,

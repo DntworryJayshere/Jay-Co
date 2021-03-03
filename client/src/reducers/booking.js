@@ -1,5 +1,5 @@
 import {
-	GET_BOOKING,
+	// GET_BOOKING,
 	GET_BOOKINGS,
 	GET_BOOKINGSADMIN,
 	BOOKING_ERROR,
@@ -18,12 +18,12 @@ export default function (state = initialState, action) {
 	const { type, payload } = action;
 
 	switch (type) {
-		case GET_BOOKING:
-			return {
-				...state,
-				booking: payload,
-				loading: false,
-			};
+		// case GET_BOOKING:
+		// 	return {
+		// 		...state,
+		// 		booking: payload,
+		// 		loading: false,
+		// 	};
 		case GET_BOOKINGS:
 			return {
 				...state,

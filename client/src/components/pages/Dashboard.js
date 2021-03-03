@@ -82,8 +82,7 @@ const Dashboard = ({
 									<br />
 								</Fragment>
 							)}
-						</div>
-						{/* {loading || Bookings !== null ? (
+
 							<Fragment>
 								<div className="contextBodyTitle text-left border-top border-dark">
 									Appointment Information
@@ -92,21 +91,32 @@ const Dashboard = ({
 								</div>
 								<br />
 							</Fragment>
-						) : (
-							<Fragment>
-								<div className="contextBodyTitle text-left border-top border-dark">
-									Appointment Information
-									<br />
-									<div className="contextBodyProfile">
-										You have not have any Appointments, please set one
-										<Link to="/appointment">
-											<Button variant="success">Create Appointment</Button>
-										</Link>
+
+							{/* {loading || booking !== null ? (
+								<Fragment>
+									<div className="contextBodyTitle text-left border-top border-dark">
+										Appointment Information
+										<br />
+										<Bookings />
 									</div>
-								</div>
-								<br />
-							</Fragment>
-						)} */}
+									<br />
+								</Fragment>
+							) : (
+								<Fragment>
+									<div className="contextBodyTitle text-left border-top border-dark">
+										Appointment Information
+										<br />
+										<div className="contextBodyProfile">
+											You have not have any Appointments, please set one
+											<Link to="/appointment">
+												<Button variant="success">Create Appointment</Button>
+											</Link>
+										</div>
+									</div>
+									<br />
+								</Fragment>
+							)} */}
+						</div>
 					</div>
 				</div>
 			</div>

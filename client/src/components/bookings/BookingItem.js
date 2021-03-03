@@ -9,39 +9,54 @@ import 'moment-timezone';
 
 const BookingItem = ({
 	deleteBooking,
-	booking: { _id, text, appointmentDate, appointmentTime, appointmentDuration },
+	auth,
+	booking: {
+		id,
+		user,
+		text,
+		appointmentDate,
+		appointmentTime,
+		appointmentDuration,
+	},
 }) => (
 	<Fragment>
-		<div>
-			<div className="contextBodyProfile">
-				Appointment Date:{' '}
-				<span>
-					<Moment format="MMM-D-YYYY">{moment.utc(appointmentDate)}</Moment>
-				</span>
+		{!auth.loading && user === auth.user._id && (
+			<div>
+				<div className="contextBodyProfile">
+					Appointment Date:{' '}
+					<span>
+						<Moment format="MMM-D-YYYY">{moment.utc(appointmentDate)}</Moment>
+					</span>
+				</div>
+				<div className="contextBodyProfile">
+					Appointment Time: <span>{appointmentTime}</span>
+				</div>
+				<div className="contextBodyProfile">
+					Appointment Duration: <span>{appointmentDuration}</span>
+				</div>
+				<div className="contextBodyProfile">
+					Appointment Comments: <span>{text}</span>
+				</div>
+				<Button
+					className="contextBodyProfile"
+					variant="danger"
+					onClick={() => deleteBooking(id)}
+				>
+					<i className="fas fa-trash" /> Delete Booking{' '}
+				</Button>
 			</div>
-			<div className="contextBodyProfile">
-				Appointment Time: <span>{appointmentTime}</span>
-			</div>
-			<div className="contextBodyProfile">
-				Appointment Duration: <span>{appointmentDuration}</span>
-			</div>
-			<div className="contextBodyProfile">
-				Appointment Comments: <span>{text}</span>
-			</div>
-			<Button
-				className="contextBodyProfile"
-				variant="danger"
-				onClick={() => deleteBooking(_id)}
-			>
-				<i className="fas fa-trash" /> Delete Booking{' '}
-			</Button>
-		</div>
+		)}
 	</Fragment>
 );
 
 BookingItem.propTypes = {
 	booking: PropTypes.object.isRequired,
+	auth: PropTypes.object.isRequired,
 	deleteBooking: PropTypes.func.isRequired,
 };
 
-export default connect(null, { deleteBooking })(BookingItem);
+const mapStateToProps = (state) => ({
+	auth: state.auth,
+});
+
+export default connect(mapStateToProps, { deleteBooking })(BookingItem);

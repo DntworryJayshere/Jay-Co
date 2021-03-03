@@ -26,22 +26,23 @@ export const getCurrentProfile = () => async (dispatch) => {
 	}
 };
 
+// *Route is functional but not currently in use by the application
 // Get profile by ID
-export const getProfileById = (userId) => async (dispatch) => {
-	try {
-		const res = await api.get(`/profile/user/${userId}`);
+// export const getProfileById = (userId) => async (dispatch) => {
+// 	try {
+// 		const res = await api.get(`/profile/user/${userId}`);
 
-		dispatch({
-			type: GET_PROFILE,
-			payload: res.data,
-		});
-	} catch (err) {
-		dispatch({
-			type: PROFILE_ERROR,
-			payload: { msg: err.response.statusText, status: err.response.status },
-		});
-	}
-};
+// 		dispatch({
+// 			type: GET_PROFILE,
+// 			payload: res.data,
+// 		});
+// 	} catch (err) {
+// 		dispatch({
+// 			type: PROFILE_ERROR,
+// 			payload: { msg: err.response.statusText, status: err.response.status },
+// 		});
+// 	}
+// };
 
 // Get all profiles
 export const getProfiles = () => async (dispatch) => {
@@ -112,25 +113,26 @@ export const deleteAccount = () => async (dispatch) => {
 	}
 };
 
+// *Route is functional but currently not in use by the application
 // Delete account & profile as administrator
-export const deleteAccountAdmin = (_id) => async (dispatch) => {
-	if (window.confirm('Are you sure? This can NOT be undone!')) {
-		try {
-			await api.delete(`/profile/admin/${_id}`);
+// export const deleteAccountAdmin = (_id) => async (dispatch) => {
+// 	if (window.confirm('Are you sure? This can NOT be undone!')) {
+// 		try {
+// 			await api.delete(`/profile/admin/${_id}`);
 
-			dispatch({ type: CLEAR_PROFILE });
-			dispatch({ type: ACCOUNT_DELETED });
+// 			dispatch({ type: CLEAR_PROFILE });
+// 			dispatch({ type: ACCOUNT_DELETED });
 
-			dispatch(
-				setAlert(
-					'This account, profile, and bookings have been permanently deleted'
-				)
-			);
-		} catch (err) {
-			dispatch({
-				type: PROFILE_ERROR,
-				payload: { msg: err.response.statusText, status: err.response.status },
-			});
-		}
-	}
-};
+// 			dispatch(
+// 				setAlert(
+// 					'This account, profile, and bookings have been permanently deleted'
+// 				)
+// 			);
+// 		} catch (err) {
+// 			dispatch({
+// 				type: PROFILE_ERROR,
+// 				payload: { msg: err.response.statusText, status: err.response.status },
+// 			});
+// 		}
+// 	}
+// };

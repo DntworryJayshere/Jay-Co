@@ -5,10 +5,14 @@ import Spinner from '../layout/Spinner';
 import BookingItem from './BookingItem';
 import { getBookings } from '../../actions/booking';
 
-const Bookings = ({ getBookings, booking: { bookings, loading }, match }) => {
+const Bookings = ({
+	getBookings,
+	booking: { bookings, loading },
+	auth: { user },
+}) => {
 	useEffect(() => {
-		getBookings(match.params._id);
-	}, [getBookings, match.params._id]);
+		getBookings(user.id);
+	}, [getBookings, user.id]);
 
 	return loading || bookings === null ? (
 		<Spinner />
@@ -24,12 +28,14 @@ const Bookings = ({ getBookings, booking: { bookings, loading }, match }) => {
 };
 
 Bookings.propTypes = {
-	getBookings: PropTypes.func.isRequired,
 	booking: PropTypes.object.isRequired,
+	auth: PropTypes.object.isRequired,
+	getBookings: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
 	booking: state.booking,
+	auth: state.auth,
 });
 
 export default connect(mapStateToProps, { getBookings })(Bookings);
