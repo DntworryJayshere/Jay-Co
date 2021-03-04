@@ -12,17 +12,17 @@ const Navbarb = ({ auth: { isAuthenticated, loading }, logout }) => {
 		<>
 			<Nav className="justify-content-center">
 				<Nav.Item>
-					<Nav.Link href="/create-booking">Schedule Here</Nav.Link>
+					<Nav.Link to="/create-booking">Schedule Here</Nav.Link>
 				</Nav.Item>
 			</Nav>
 			<Nav className="justify-content-center">
 				<Nav.Item>
-					<Nav.Link href="/dashboard">Profile</Nav.Link>
+					<Nav.Link to="/dashboard">Profile</Nav.Link>
 				</Nav.Item>
 			</Nav>
 			<Nav>
 				<Nav.Item>
-					<Nav.Link onClick={logout} href="#!">
+					<Nav.Link onClick={logout} to="#!">
 						Logout
 					</Nav.Link>
 				</Nav.Item>
@@ -33,14 +33,14 @@ const Navbarb = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const guestLinks = (
 		<Nav className="justify-content-end">
 			<Nav.Item>
-				<Nav.Link href="/login">Login</Nav.Link>
+				<Nav.Link onTouchMoveCapture="/login">Login</Nav.Link>
 			</Nav.Item>
 		</Nav>
 	);
 
 	return (
 		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-			<Navbar.Brand href="/">Jay&Co</Navbar.Brand>
+			<Navbar.Brand to="/">Jay&Co</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse
 				className="justify-content-end"
