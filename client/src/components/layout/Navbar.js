@@ -33,7 +33,7 @@ const Navbarb = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const guestLinks = (
 		<Nav className="justify-content-end">
 			<Nav.Item>
-				<Nav.Link onTouchMoveCapture="/login">Login</Nav.Link>
+				<Nav.Link to="/login">Login</Nav.Link>
 			</Nav.Item>
 		</Nav>
 	);
