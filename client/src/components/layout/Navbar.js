@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { logout } from '../../actions/auth';
 
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,38 +10,44 @@ import './Navbar.css';
 
 const Navbarb = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const authLinks = (
-		<>
-			<Nav className="justify-content-center">
-				<Nav.Item>
-					<Nav.Link to="/create-booking">Schedule Here</Nav.Link>
-				</Nav.Item>
-			</Nav>
-			<Nav className="justify-content-center">
-				<Nav.Item>
-					<Nav.Link to="/dashboard">Profile</Nav.Link>
-				</Nav.Item>
-			</Nav>
-			<Nav>
-				<Nav.Item>
-					<Nav.Link onClick={logout} to="#!">
+		<Nav className="justify-content-center">
+			<Nav.Item>
+				<Nav.Link>
+					<Link to="/create-booking">Schedule Here</Link>
+				</Nav.Link>
+			</Nav.Item>
+
+			<Nav.Item>
+				<Nav.Link>
+					<Link to="/dashboard">Profile</Link>
+				</Nav.Link>
+			</Nav.Item>
+
+			<Nav.Item>
+				<Nav.Link>
+					<Link onClick={logout} to="#!">
 						Logout
-					</Nav.Link>
-				</Nav.Item>
-			</Nav>
-		</>
+					</Link>
+				</Nav.Link>
+			</Nav.Item>
+		</Nav>
 	);
 
 	const guestLinks = (
 		<Nav className="justify-content-end">
 			<Nav.Item>
-				<Nav.Link to="/login">Login</Nav.Link>
+				<Nav.Link>
+					<Link to="/login">Login</Link>
+				</Nav.Link>
 			</Nav.Item>
 		</Nav>
 	);
 
 	return (
 		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-			<Navbar.Brand to="/">Jay&Co</Navbar.Brand>
+			<Navbar.Brand>
+				<Link to="/login">Jay&Co</Link>
+			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse
 				className="justify-content-end"

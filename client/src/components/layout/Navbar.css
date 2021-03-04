@@ -8,11 +8,14 @@
 	top: 0;
 	z-index: 999;
 }
+.navbar-nav {
+	margin-right: 2rem;
+}
 
 .navbar-brand {
 	color: #fff;
 	justify-self: start;
-	margin-left: 3rem;
+	margin-left: 2rem;
 	font-size: 2rem;
 	display: flex;
 	align-items: center;
