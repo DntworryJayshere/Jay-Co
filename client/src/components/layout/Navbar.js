@@ -46,7 +46,7 @@ const Navbarb = ({ auth: { isAuthenticated, loading }, logout }) => {
 	return (
 		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 			<Navbar.Brand>
-				<Link to="/login">Jay&Co</Link>
+				<Link to="/">Jay&Co</Link>
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse
