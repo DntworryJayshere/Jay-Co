@@ -60,25 +60,25 @@ const Footer = ({ registerSubscriber }) => {
 						<div className="footer-link-items">
 							<h2>About</h2>
 							<Link to="/adminPage">Admin Page</Link>
-							<Link to="/SamplePage">How it works</Link>
-							<Link to="/SamplePage">Careers</Link>
-							<Link to="/SamplePage">Terms of Service</Link>
+							<Link to="/samplePage">How it works</Link>
+							<Link to="/samplePage">Careers</Link>
+							<Link to="/samplePage">Terms of Service</Link>
 						</div>
 						<div className="footer-link-items">
 							<h2>Contact</h2>
-							<Link to="/SamplePage">Contact</Link>
-							<Link to="/SamplePage">Support</Link>
-							<Link to="/SamplePage">Important</Link>
-							<Link to="/SamplePage">Sponsorships</Link>
+							<Link to="/samplePage">Contact</Link>
+							<Link to="/samplePage">Support</Link>
+							<Link to="/samplePage">Important</Link>
+							<Link to="/samplePage">Sponsorships</Link>
 						</div>
 					</div>
 					<div className="footer-link-wrapper">
 						<div className="footer-link-items">
 							<h2>Videos</h2>
-							<Link to="/SamplePage">Submit</Link>
-							<Link to="/SamplePage">Ambassadors</Link>
-							<Link to="/SamplePage">Agency</Link>
-							<Link to="/SamplePage">Influencer</Link>
+							<Link to="/samplePage">Submit</Link>
+							<Link to="/samplePage">Ambassadors</Link>
+							<Link to="/samplePage">Agency</Link>
+							<Link to="/samplePage">Influencer</Link>
 						</div>
 						<div className="footer-link-items">
 							<h2>Social</h2>

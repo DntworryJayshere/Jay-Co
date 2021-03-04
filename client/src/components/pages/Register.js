@@ -141,7 +141,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 													<br />
 													<div className="text-center mb-4">
 														Already registered?
-														<Link to="/Login">Login</Link>
+														<Link to="/login">Login</Link>
 													</div>
 												</div>
 											</div>
