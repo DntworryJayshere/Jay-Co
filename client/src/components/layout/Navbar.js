@@ -6,26 +6,29 @@ import { logout } from '../../actions/auth';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import './Navbar.css';
 
 const Navbarb = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const authLinks = (
 		<Nav className="justify-content-center">
 			<Nav.Item>
 				<Nav.Link>
-					<Link to="/create-booking">Schedule Here</Link>
+					<Link style={{ color: 'white' }} to="/create-booking">
+						Schedule Here
+					</Link>
 				</Nav.Link>
 			</Nav.Item>
 
 			<Nav.Item>
 				<Nav.Link>
-					<Link to="/dashboard">Profile</Link>
+					<Link style={{ color: 'white' }} to="/dashboard">
+						Profile
+					</Link>
 				</Nav.Link>
 			</Nav.Item>
 
 			<Nav.Item>
 				<Nav.Link>
-					<Link onClick={logout} to="#!">
+					<Link style={{ color: 'white' }} onClick={logout} to="#!">
 						Logout
 					</Link>
 				</Nav.Link>
@@ -37,7 +40,9 @@ const Navbarb = ({ auth: { isAuthenticated, loading }, logout }) => {
 		<Nav className="justify-content-end">
 			<Nav.Item>
 				<Nav.Link>
-					<Link to="/login">Login</Link>
+					<Link style={{ color: 'white' }} to="/login">
+						Login
+					</Link>
 				</Nav.Link>
 			</Nav.Item>
 		</Nav>
@@ -46,7 +51,9 @@ const Navbarb = ({ auth: { isAuthenticated, loading }, logout }) => {
 	return (
 		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 			<Navbar.Brand>
-				<Link to="/">Jay&Co</Link>
+				<Link style={{ color: 'white' }} to="/">
+					Jay&Co
+				</Link>
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse

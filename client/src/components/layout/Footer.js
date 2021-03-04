@@ -5,7 +5,6 @@ import { registerSubscriber } from '../../actions/auth';
 import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import './Footer.css';
 
 const Footer = ({ registerSubscriber }) => {
 	const [formData, setFormData] = useState({
