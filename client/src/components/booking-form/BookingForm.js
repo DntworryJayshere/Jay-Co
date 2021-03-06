@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { addBooking } from '../../actions/booking';
 
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 const BookingForm = ({ addBooking }) => {
@@ -43,72 +41,60 @@ const BookingForm = ({ addBooking }) => {
 										<div className="row justify-content-center">
 											<div className="col-lg-12">
 												<div className="p-5">
-													<Form className="form" onSubmit={onSubmit}>
-														<Col>
-															<Form.Group as={Row} controlId="appointmentDate">
-																<Form.Label>Appointment Date:</Form.Label>
-																<Form.Control
-																	name="appointmentDate"
-																	value={appointmentDate}
-																	onChange={onChange}
-																	type="Date"
-																	required
-																/>
-															</Form.Group>
-														</Col>
+													<Form onSubmit={onSubmit}>
+														<Form.Group>
+															<Form.Label>Appointment Date:</Form.Label>
+															<Form.Control
+																name="appointmentDate"
+																value={appointmentDate}
+																onChange={onChange}
+																type="Date"
+																required
+															/>
+														</Form.Group>
 
-														<Col>
-															<Form.Group as={Row} controlId="appointmentTime">
-																<Form.Label>Appointment Time:</Form.Label>
-																<Form.Control
-																	name="appointmentTime"
-																	value={appointmentTime}
-																	onChange={onChange}
-																	type="Time"
-																	required
-																/>
-															</Form.Group>
-														</Col>
+														<Form.Group>
+															<Form.Label>Appointment Time:</Form.Label>
+															<Form.Control
+																name="appointmentTime"
+																value={appointmentTime}
+																onChange={onChange}
+																type="Time"
+																required
+															/>
+														</Form.Group>
 
-														<Col>
-															<Form.Group
-																as={Row}
-																controlId="appointmentDuration"
+														<Form.Group>
+															<Form.Label>Appointment Duration:</Form.Label>
+															<Form.Control
+																as="select"
+																name="appointmentDuration"
+																value={appointmentDuration}
+																onChange={onChange}
+																type="Time"
+																required
 															>
-																<Form.Label>Appointment Duration:</Form.Label>
-																<Form.Control
-																	as="select"
-																	defaultValue="45 minutes"
-																	name="appointmentDuration"
-																	value={appointmentDuration}
-																	onChange={onChange}
-																	type="Time"
-																	required
-																>
-																	<option></option>
-																	<option>30 minutes</option>
-																	<option>45 minutes</option>
-																	<option>1 hour</option>
-																	<option>1 hour 30 minutes</option>
-																	<option>2 hours</option>
-																</Form.Control>
-															</Form.Group>
-														</Col>
+																<option></option>
+																<option>30 minutes</option>
+																<option>45 minutes</option>
+																<option>1 hour</option>
+																<option>1 hour 30 minutes</option>
+																<option>2 hours</option>
+															</Form.Control>
+														</Form.Group>
 
-														<Col>
-															<Form.Group controlId="" text>
-																<Form.Label>Comment:</Form.Label>
-																<Form.Control
-																	as="textarea"
-																	rows={3}
-																	name="text"
-																	value={text}
-																	placeholder="Id like to discuss..."
-																	onChange={onChange}
-																	type="text"
-																/>
-															</Form.Group>
-														</Col>
+														<Form.Group>
+															<Form.Label>Comment:</Form.Label>
+															<Form.Control
+																as="textarea"
+																rows={3}
+																name="text"
+																value={text}
+																placeholder="Id like to discuss..."
+																onChange={onChange}
+																type="text"
+															/>
+														</Form.Group>
 
 														<div id="bookingFormButton">
 															<Button

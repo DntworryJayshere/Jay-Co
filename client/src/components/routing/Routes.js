@@ -22,8 +22,16 @@ const Routes = (props) => {
 		<>
 			<Alert />
 			<Switch>
-				<Route exact path="/register" component={Register} />
-				<Route exact path="/login" component={Login} />
+				<Route
+					exact
+					path="/register"
+					component={(props) => <Register {...props} />}
+				/>
+				<Route
+					exact
+					path="/login"
+					component={(props) => <Login {...props} />}
+				/>
 				<Route exact path="/samplePage" component={SamplePage} />
 				<Route exact path="/adminPage" component={AdminPage} />
 

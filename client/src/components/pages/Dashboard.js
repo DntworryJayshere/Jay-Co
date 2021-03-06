@@ -58,7 +58,7 @@ const Dashboard = ({
 							</div>
 							<br />
 
-							{!loading || profile !== null ? (
+							{loading || profile !== null ? (
 								<Fragment>
 									<div className="contextBodyTitle text-left border-top border-dark">
 										Profile Information
@@ -83,7 +83,7 @@ const Dashboard = ({
 								</Fragment>
 							)}
 
-							{!loadingB || bookings !== null ? (
+							{loadingB || bookings !== null ? (
 								<Fragment>
 									<div className="contextBodyTitle text-left border-top border-dark">
 										Appointment Information

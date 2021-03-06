@@ -21,7 +21,7 @@ const Bookings = ({
 			) : (
 				<Fragment>
 					{bookings.map((booking) => (
-						<BookingItem key={booking.id} booking={booking} />
+						<BookingItem key={booking._id} booking={booking} />
 					))}
 				</Fragment>
 			)}

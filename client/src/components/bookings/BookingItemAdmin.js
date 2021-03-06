@@ -29,7 +29,7 @@ const BookingItem = ({
 			<ListGroup.Item>
 				Appointment Date:{' '}
 				<span>
-					<Moment format="MMM-D-YYYY">{moment.utc(appointmentDate)}</Moment>
+					<Moment>{moment.utc(appointmentDate)}</Moment>
 				</span>
 			</ListGroup.Item>
 			<ListGroup.Item>

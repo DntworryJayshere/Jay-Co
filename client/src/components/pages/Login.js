@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -27,72 +27,74 @@ const Login = ({ login, isAuthenticated }) => {
 	}
 
 	return (
-		<div className="outerContainer">
-			<div className="col-md-12 mx-auto p-0">
-				<div className="container py-1">
-					<div className="col-md-12 mt-6 bg-white p-0">
-						<div className="row justify-content-center">
-							<div className="col-md-6 col-sm-11 col-12 mx-auto pb-5">
-								<div className="card border-0 shadow-lg my-5">
-									<div className="card-body p-0">
-										<div className="row justify-content-center">
-											<div className="col-lg-12">
-												<div className="p-5">
-													<div className="text-center">
-														<h1 className="h4 text-gray-900 mb-4">
-															Welcome, Please Login
-														</h1>
-													</div>
-
-													<Form className="form" onSubmit={onSubmit}>
-														<Form.Group controlId="FirstName">
-															<Form.Label>Email Address</Form.Label>
-															<Form.Control
-																className="form-control-user"
-																type="email"
-																name="email"
-																placeholder="Enter email address..."
-																value={email}
-																onChange={onChange}
-																required
-															/>
-														</Form.Group>
-
-														<Form.Group controlId="LastName">
-															<Form.Label>Password</Form.Label>
-															<Form.Control
-																className="form-control-user"
-																type="password"
-																placeholder="Password"
-																name="password"
-																value={password}
-																onChange={onChange}
-																minLength="6"
-															/>
-														</Form.Group>
-
-														<div className="SubmitButtonBar">
-															<Button
-																className="btn btn-user btn-block mt-3"
-																name="submit"
-																type="submit"
-																value="Login"
-															>
-																Login
-															</Button>
+		<Fragment>
+			<div className="outerContainer">
+				<div className="col-md-12 mx-auto p-0">
+					<div className="container py-1">
+						<div className="col-md-12 mt-6 bg-white p-0">
+							<div className="row justify-content-center">
+								<div className="col-md-6 col-sm-11 col-12 mx-auto pb-5">
+									<div className="card border-0 shadow-lg my-5">
+										<div className="card-body p-0">
+											<div className="row justify-content-center">
+												<div className="col-lg-12">
+													<div className="p-5">
+														<div className="text-center">
+															<h1 className="h4 text-gray-900 mb-4">
+																Welcome, Please Login
+															</h1>
 														</div>
-													</Form>
-													<br />
 
-													<div className="text-center">
-														<Link className="small" to="/samplePage">
-															Forgot Password?
-														</Link>
-													</div>
-													<div className="text-center">
-														<Link className="small" to="/register">
-															Create an Account!
-														</Link>
+														<Form onSubmit={onSubmit}>
+															<Form.Group controlId="FirstName">
+																<Form.Label>Email Address</Form.Label>
+																<Form.Control
+																	className="form-control-user"
+																	type="email"
+																	name="email"
+																	placeholder="Enter email address..."
+																	value={email}
+																	onChange={onChange}
+																	required
+																/>
+															</Form.Group>
+
+															<Form.Group controlId="LastName">
+																<Form.Label>Password</Form.Label>
+																<Form.Control
+																	className="form-control-user"
+																	type="password"
+																	placeholder="Password"
+																	name="password"
+																	value={password}
+																	onChange={onChange}
+																	minLength="6"
+																/>
+															</Form.Group>
+
+															<div className="SubmitButtonBar">
+																<Button
+																	className="btn btn-user btn-block mt-3"
+																	name="submit"
+																	type="submit"
+																	value="Login"
+																>
+																	Login
+																</Button>
+															</div>
+														</Form>
+														<br />
+
+														<div className="text-center">
+															<Link className="small" to="/samplePage">
+																Forgot Password?
+															</Link>
+														</div>
+														<div className="text-center">
+															<Link className="small" to="/register">
+																Create an Account!
+															</Link>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -104,7 +106,7 @@ const Login = ({ login, isAuthenticated }) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</Fragment>
 	);
 };
 

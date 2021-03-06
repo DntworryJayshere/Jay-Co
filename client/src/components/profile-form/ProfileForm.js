@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
 import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 const initialState = {
@@ -67,116 +66,107 @@ const ProfileForm = ({
 										<div className="row justify-content-center">
 											<div className="col-lg-12">
 												<div className="p-5">
-													<Form className="form" onSubmit={onSubmit}>
-														<div className="form-group">
-															<Form.Row>
-																<Form.Group as={Col} controlId="dob">
-																	<Form.Label>Date Of Birth*</Form.Label>
-																	<Form.Control
-																		type="date"
-																		placeholder="01/01/2000"
-																		name="dob"
-																		value={dob}
-																		onChange={onChange}
-																		required
-																	/>
-																</Form.Group>
+													<Form onSubmit={onSubmit}>
+														<Form.Group controlId="dob">
+															<Form.Label>Date Of Birth*</Form.Label>
+															<Form.Control
+																type="Date"
+																name="dob"
+																value={dob}
+																onChange={onChange}
+																required
+															/>
+														</Form.Group>
 
-																<Form.Group as={Col} controlId="phone">
-																	<Form.Label>Phone Number*</Form.Label>
-																	<Form.Control
-																		type="text"
-																		placeholder="123456789"
-																		name="phone"
-																		value={phone}
-																		onChange={onChange}
-																		required
-																	/>
-																</Form.Group>
-															</Form.Row>
+														<Form.Group controlId="phone">
+															<Form.Label>Phone Number*</Form.Label>
+															<Form.Control
+																type="text"
+																placeholder="123456789"
+																name="phone"
+																value={phone}
+																onChange={onChange}
+																required
+															/>
+														</Form.Group>
 
-															<Form.Group controlId="formGridAddress1">
-																<Form.Label>Address*</Form.Label>
-																<Form.Control
-																	type="text"
-																	placeholder="1234 Main St"
-																	name="address1"
-																	value={address1}
-																	onChange={onChange}
-																	required
-																/>
-															</Form.Group>
+														<Form.Group controlId="formGridAddress1">
+															<Form.Label>Address*</Form.Label>
+															<Form.Control
+																type="text"
+																placeholder="1234 Main St"
+																name="address1"
+																value={address1}
+																onChange={onChange}
+																required
+															/>
+														</Form.Group>
 
-															<Form.Group controlId="formGridAddress2">
-																<Form.Label>Address 2</Form.Label>
-																<Form.Control
-																	type="text"
-																	placeholder="Apartment, studio, or floor"
-																	name="address2"
-																	value={address2}
-																	onChange={onChange}
-																/>
-															</Form.Group>
+														<Form.Group controlId="formGridAddress2">
+															<Form.Label>Address 2</Form.Label>
+															<Form.Control
+																type="text"
+																placeholder="Apartment, studio, or floor"
+																name="address2"
+																value={address2}
+																onChange={onChange}
+															/>
+														</Form.Group>
 
-															<Form.Row>
-																<Form.Group as={Col} controlId="formGridCity">
-																	<Form.Label>City*</Form.Label>
-																	<Form.Control
-																		type="text"
-																		placeholder="City"
-																		name="city"
-																		value={city}
-																		onChange={onChange}
-																		required
-																	/>
-																</Form.Group>
+														<Form.Group controlId="formGridCity">
+															<Form.Label>City*</Form.Label>
+															<Form.Control
+																type="text"
+																placeholder="City"
+																name="city"
+																value={city}
+																onChange={onChange}
+																required
+															/>
+														</Form.Group>
 
-																<Form.Group as={Col} controlId="formGridState">
-																	<Form.Label>State*</Form.Label>
-																	<Form.Control
-																		type="text"
-																		placeholder="State"
-																		name="statee"
-																		value={statee}
-																		onChange={onChange}
-																		required
-																	/>
-																</Form.Group>
+														<Form.Group controlId="formGridState">
+															<Form.Label>State*</Form.Label>
+															<Form.Control
+																type="text"
+																placeholder="State"
+																name="statee"
+																value={statee}
+																onChange={onChange}
+																required
+															/>
+														</Form.Group>
 
-																<Form.Group as={Col} controlId="formGridZip">
-																	<Form.Label>Zip*</Form.Label>
-																	<Form.Control
-																		type="text"
-																		placeholder="Zip"
-																		name="zip"
-																		value={zip}
-																		onChange={onChange}
-																		required
-																	/>
-																</Form.Group>
-															</Form.Row>
-															<small>* = required field</small>
-															<br />
-															<div className="SubmitButtonBar">
-																<Button
-																	id="dash-button3"
-																	className="btn btn-success"
-																	name="submit"
-																	type="submit"
-																>
-																	Submit
-																</Button>
+														<Form.Group controlId="formGridZip">
+															<Form.Label>Zip*</Form.Label>
+															<Form.Control
+																type="text"
+																placeholder="Zip"
+																name="zip"
+																value={zip}
+																onChange={onChange}
+																required
+															/>
+														</Form.Group>
 
-																<div className="OtherButtons">
-																	<Link
-																		className="OtherButtons"
-																		to="/dashboard"
-																	>
-																		<Button id="dash-button3" variant="danger">
-																			Go Back
-																		</Button>
-																	</Link>
-																</div>
+														<small>* = required field</small>
+														<br />
+														<div className="SubmitButtonBar">
+															<Button
+																id="dash-button3"
+																className="btn btn-success"
+																name="submit"
+																type="submit"
+															>
+																Submit
+															</Button>
+
+															<div className="OtherButtons">
+																<Link className="OtherButtons" to="/dashboard">
+																	<Button id="dash-button3" variant="danger">
+																		Go Back
+																	</Button>
+																</Link>
 															</div>
 														</div>
 													</Form>
