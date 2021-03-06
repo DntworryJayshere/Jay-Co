@@ -31,7 +31,7 @@ const ProfileItemAdmin = ({
 				<ListGroup.Item>
 					Date of Birth:{' '}
 					<span>
-						<Moment>{moment.utc(dob)}</Moment>
+						<Moment format="MMM-D-YYYY">{moment.utc(dob)}</Moment>
 					</span>
 				</ListGroup.Item>
 				<ListGroup.Item>

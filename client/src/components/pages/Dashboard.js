@@ -58,7 +58,7 @@ const Dashboard = ({
 							</div>
 							<br />
 
-							{loading || profile !== null ? (
+							{loading || (!loading && profile !== null) ? (
 								<Fragment>
 									<div className="contextBodyTitle text-left border-top border-dark">
 										Profile Information
@@ -83,7 +83,7 @@ const Dashboard = ({
 								</Fragment>
 							)}
 
-							{loadingB || bookings !== null ? (
+							{loadingB || (!loadingB && bookings !== null) ? (
 								<Fragment>
 									<div className="contextBodyTitle text-left border-top border-dark">
 										Appointment Information
@@ -95,7 +95,7 @@ const Dashboard = ({
 							) : (
 								<Fragment>
 									<div className="contextBodyTitle text-left border-top border-dark">
-										Profile Information
+										Booking Information
 										<br />
 										<div className="contextBodyProfile">
 											You have not yet setup a profile, please add some info

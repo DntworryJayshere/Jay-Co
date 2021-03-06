@@ -13,7 +13,7 @@ const ProfileItem = ({
 			<div className="contextBodyProfile">
 				Date of Birth:{' '}
 				<span>
-					<Moment>{moment.utc(dob)}</Moment>
+					<Moment format="MMM-D-YYYY">{moment.utc(dob)}</Moment>
 				</span>
 				<Link to="/edit-profile" className="editOption">
 					<p>Change DoB</p>

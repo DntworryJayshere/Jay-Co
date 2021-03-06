@@ -15,7 +15,7 @@ const BookingItem = ({
 		<div className="contextBodyProfile">
 			Appointment Date:{' '}
 			<span>
-				<Moment>{moment.utc(appointmentDate)}</Moment>
+				<Moment format="MMM-D-YYYY">{moment.utc(appointmentDate)}</Moment>
 			</span>
 		</div>
 		<div className="contextBodyProfile">
