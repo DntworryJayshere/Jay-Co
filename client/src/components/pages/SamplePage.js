@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Footer from './../layout/Footer';
 
 function SamplePage() {
 	return (
-		<>
+		<Fragment>
 			<div className="outerContainer splashOuterContainer">
 				<div className="container">
 					<div className="row justify-content-center position-relative">
@@ -47,7 +47,7 @@ function SamplePage() {
 				<br />
 			</div>
 			<Footer />
-		</>
+		</Fragment>
 	);
 }
 export default SamplePage;

@@ -6,14 +6,14 @@ import BookingItemAdmin from './BookingItemAdmin';
 import { getBookingsAdmin } from '../../actions/booking';
 import CardColumns from 'react-bootstrap/CardColumns';
 
-const Bookings = ({ getBookingsAdmin, booking: { bookings, loading } }) => {
+const Bookings = ({ getBookingsAdmin, booking: { bookings, loadingB } }) => {
 	useEffect(() => {
 		getBookingsAdmin();
 	}, [getBookingsAdmin]);
 
 	return (
 		<Fragment>
-			{loading ? (
+			{loadingB ? (
 				<Spinner />
 			) : (
 				<Fragment>

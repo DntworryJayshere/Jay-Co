@@ -5,14 +5,14 @@ import Spinner from '../layout/Spinner';
 import ProfileItem from '../profiles/ProfileItem';
 import { getCurrentProfile } from '../../actions/profile';
 
-const Profile = ({ getCurrentProfile, profile: { profile } }) => {
+const Profile = ({ getCurrentProfile, profile: { profile, loading } }) => {
 	useEffect(() => {
 		getCurrentProfile();
 	});
 
 	return (
 		<Fragment>
-			{profile === null ? (
+			{loading ? (
 				<Spinner />
 			) : (
 				<Fragment>

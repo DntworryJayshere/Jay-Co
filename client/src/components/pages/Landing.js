@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Footer from './../layout/Footer';
 
 function Landing() {
 	return (
-		<>
+		<Fragment>
 			<div className="outerContainer splashOuterContainer">
 				<div className="container">
 					<div className="row justify-content-center position-relative">
@@ -96,7 +96,7 @@ function Landing() {
 				<br />
 			</div>
 			<Footer />
-		</>
+		</Fragment>
 	);
 }
 export default Landing;

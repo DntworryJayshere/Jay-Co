@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
@@ -9,7 +9,7 @@ const ProfileItem = ({
 	profile: { dob, phone, address1, address2, city, statee, zip },
 }) => {
 	return (
-		<div>
+		<Fragment>
 			<div className="contextBodyProfile">
 				Date of Birth:{' '}
 				<span>
@@ -55,7 +55,7 @@ const ProfileItem = ({
 					<p>Change Zip</p>
 				</Link>
 			</div>
-		</div>
+		</Fragment>
 	);
 };
 

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import BookingForm from './../booking-form/BookingForm';
 
 class CreateBooking extends Component {
 	render() {
 		return (
-			<>
+			<Fragment>
 				<div className="text-center align-self-center topping">
 					<h2>Create Booking</h2>
 					<span>
@@ -15,7 +15,7 @@ class CreateBooking extends Component {
 				</div>
 
 				<BookingForm />
-			</>
+			</Fragment>
 		);
 	}
 }

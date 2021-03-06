@@ -7,22 +7,24 @@ import { getBookings } from '../../actions/booking';
 
 const Bookings = ({
 	getBookings,
-	booking: { bookings, loading },
+	booking: { bookings, loadingB },
 	auth: { user },
 }) => {
 	useEffect(() => {
 		getBookings(user._id);
 	}, [getBookings, user._id]);
 
-	return loading || bookings === null ? (
-		<Spinner />
-	) : (
+	return (
 		<Fragment>
-			<div>
-				{bookings.map((booking) => (
-					<BookingItem key={booking.id} booking={booking} />
-				))}
-			</div>
+			{loadingB ? (
+				<Spinner />
+			) : (
+				<Fragment>
+					{bookings.map((booking) => (
+						<BookingItem key={booking.id} booking={booking} />
+					))}
+				</Fragment>
+			)}
 		</Fragment>
 	);
 };

@@ -12,30 +12,28 @@ const BookingItem = ({
 	booking: { _id, text, appointmentDate, appointmentTime, appointmentDuration },
 }) => (
 	<Fragment>
-		<div>
-			<div className="contextBodyProfile">
-				Appointment Date:{' '}
-				<span>
-					<Moment format="MMM-D-YYYY">{moment.utc(appointmentDate)}</Moment>
-				</span>
-			</div>
-			<div className="contextBodyProfile">
-				Appointment Time: <span>{appointmentTime}</span>
-			</div>
-			<div className="contextBodyProfile">
-				Appointment Duration: <span>{appointmentDuration}</span>
-			</div>
-			<div className="contextBodyProfile">
-				Appointment Comments: <span>{text}</span>
-			</div>
-			<Button
-				className="contextBodyProfile"
-				variant="danger"
-				onClick={() => deleteBooking(_id)}
-			>
-				<i className="fas fa-trash" /> Delete Booking{' '}
-			</Button>
+		<div className="contextBodyProfile">
+			Appointment Date:{' '}
+			<span>
+				<Moment format="MMM-D-YYYY">{moment.utc(appointmentDate)}</Moment>
+			</span>
 		</div>
+		<div className="contextBodyProfile">
+			Appointment Time: <span>{appointmentTime}</span>
+		</div>
+		<div className="contextBodyProfile">
+			Appointment Duration: <span>{appointmentDuration}</span>
+		</div>
+		<div className="contextBodyProfile">
+			Appointment Comments: <span>{text}</span>
+		</div>
+		<Button
+			className="contextBodyProfile"
+			variant="danger"
+			onClick={() => deleteBooking(_id)}
+		>
+			<i className="fas fa-trash" /> Delete Booking{' '}
+		</Button>
 	</Fragment>
 );
 

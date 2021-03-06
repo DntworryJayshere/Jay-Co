@@ -10,7 +10,7 @@ import {
 const initialState = {
 	booking: null,
 	bookings: [],
-	loading: true,
+	loadingB: true,
 	error: {},
 };
 
@@ -28,31 +28,31 @@ function bookingReducer(state = initialState, action) {
 			return {
 				...state,
 				bookings: payload,
-				loading: false,
+				loadingB: false,
 			};
 		case GET_BOOKINGSADMIN:
 			return {
 				...state,
 				bookings: payload,
-				loading: false,
+				loadingB: false,
 			};
 		case ADD_BOOKING:
 			return {
 				...state,
 				bookings: [payload, ...state.bookings],
-				loading: false,
+				loadingB: false,
 			};
 		case DELETE_BOOKING:
 			return {
 				...state,
 				bookings: state.bookings.filter((booking) => booking._id !== payload),
-				loading: false,
+				loadingB: false,
 			};
 		case BOOKING_ERROR:
 			return {
 				...state,
 				error: payload,
-				loading: false,
+				loadingB: false,
 			};
 		default:
 			return state;
