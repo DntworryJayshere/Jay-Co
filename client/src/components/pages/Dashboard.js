@@ -73,7 +73,9 @@ const Dashboard = ({
 										Profile Information
 										<br />
 										<div className="contextBodyProfile">
-											You have not yet setup a profile, please add some info
+											You have not setup a profile.
+										</div>
+										<div className="contextBodyProfile">
 											<Link to="/create-profile">
 												<Button variant="success">Create Profile</Button>
 											</Link>
@@ -83,7 +85,7 @@ const Dashboard = ({
 								</Fragment>
 							)}
 
-							{loadingB || (!loadingB && bookings !== null) ? (
+							{loadingB || (!loadingB && bookings.length !== 0) ? (
 								<Fragment>
 									<div className="contextBodyTitle text-left border-top border-dark">
 										Appointment Information
@@ -95,12 +97,14 @@ const Dashboard = ({
 							) : (
 								<Fragment>
 									<div className="contextBodyTitle text-left border-top border-dark">
-										Booking Information
+										Appointment Information
 										<br />
 										<div className="contextBodyProfile">
-											You have not yet setup a profile, please add some info
+											You have not set any appointments.
+										</div>
+										<div className="contextBodyProfile">
 											<Link to="/create-booking">
-												<Button variant="success">Create Profile</Button>
+												<Button variant="success">Create Booking</Button>
 											</Link>
 										</div>
 									</div>
