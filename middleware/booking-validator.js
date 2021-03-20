@@ -1,10 +1,10 @@
 const { check } = require('express-validator');
 
 exports.createBookingValidator = [
-	check('dob', 'DOB is required').not().isEmpty(),
-	check('phone', 'PhoneNumber is required').not().isEmpty(),
-	check('address1', 'Address1 is required').not().isEmpty(),
-	check('city', 'City is required').not().isEmpty(),
-	check('statee', 'State is required').not().isEmpty(),
-	check('zip', 'Zip is required').not().isEmpty(),
+	check('appointmentDate', 'Appointment Date is Required').not().isEmpty(),
+	check('appointmentTime', 'Appointment Time is Required').not().isEmpty(),
+	check('appointmentDuration', 'Appointment Duration is Required')
+		.not()
+		.isEmpty(),
+	check('text', 'Text is required').not().isEmpty(),
 ];

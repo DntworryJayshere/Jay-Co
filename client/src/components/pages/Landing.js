@@ -16,7 +16,7 @@ function Landing() {
 								The Jay&Co Custom Scheduling App provides enterprise level
 								scheduling from the comfort and convenience of your own home.
 								One application works for all service industries, including
-								councelers, barbers, detailers, and doctors!
+								councelors, barbers, detailers, and doctors!
 							</p>
 						</div>
 						<div className="col text-center topping">

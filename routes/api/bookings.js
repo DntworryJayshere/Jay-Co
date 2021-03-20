@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const AWS = require('aws-sdk');
+require('dotenv').config();
 
 // import models
 const Booking = require('../../models/Booking');
@@ -13,6 +15,17 @@ const {
 } = require('../../middleware/booking-validator');
 const { runValidation } = require('../../middleware/index-validator');
 
+//import helpers
+const { bookingPublishedParams } = require('../../helpers/email');
+
+// config AWS SES
+AWS.config.update({
+	accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+	secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+	region: process.env.AWS_REGION,
+});
+const ses = new AWS.SES({ apiVersion: '2010-12-01' });
+
 // @route    POST api/bookings
 // @desc     Create a booking
 // @access   Private
@@ -22,19 +35,20 @@ router.post(
 	createBookingValidator,
 	runValidation,
 	async (req, res) => {
-		const errors = validationResult(req);
-		if (!errors.isEmpty()) {
-			return res.status(400).json({ errors: errors.array() });
-		}
-
+		const {
+			appointmentDate,
+			appointmentTime,
+			appointmentDuration,
+			text,
+		} = req.body;
 		try {
 			const user = await User.findById(req.user.id).select('-password');
 
-			const newBooking = new Booking({
-				appointmentDate: req.body.appointmentDate,
-				appointmentTime: req.body.appointmentTime,
-				appointmentDuration: req.body.appointmentDuration,
-				text: req.body.text,
+			let newBooking = new Booking({
+				appointmentDate,
+				appointmentTime,
+				appointmentDuration,
+				text,
 				name: user.name,
 				lastName: user.lastName,
 				email: user.email,
@@ -43,7 +57,19 @@ router.post(
 
 			const booking = await newBooking.save();
 
-			res.json(booking);
+			const params = bookingPublishedParams(user.email, booking);
+			const sendEmail = ses.sendEmail(params).promise();
+
+			sendEmail
+				.then((success) => {
+					console.log('email submitted to SES ', success);
+					return;
+				})
+				.catch((failure) => {
+					console.log('error on email submitted to SES  ', failure);
+					return;
+				});
+			return res.json(booking);
 		} catch (err) {
 			console.error(err.message);
 			res.status(500).send('Server Error');

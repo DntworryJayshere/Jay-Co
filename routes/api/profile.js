@@ -39,6 +39,7 @@ router.get('/me', auth, async (req, res) => {
 // @access   Private
 router.post(
 	'/',
+	auth,
 	createORupdateProfileValidator,
 	runValidation,
 	async (req, res) => {
