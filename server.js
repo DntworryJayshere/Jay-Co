@@ -1,13 +1,30 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const morgan = require('morgan');
+const cors = require('cors');
 require('dotenv').config();
+
 const routes = require('./routes');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+//connect to db
+connectDB();
+
 //init middleware
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json({ extended: false }));
+app.use(express.json({ limit: '5mb', extended: false }));
+
+//import & config cors
+const corsOptions = {
+	origin: process.env.CLIENT_URL,
+	credentials: true, //access-control-allow-credentials:true
+	optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
@@ -17,7 +34,5 @@ if (process.env.NODE_ENV === 'production') {
 
 // Add routes, both API and view
 app.use(routes);
-
-connectDB();
 
 app.listen(PORT, () => console.log('Server started on port' + PORT));
