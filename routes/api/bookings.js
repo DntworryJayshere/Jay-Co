@@ -1,29 +1,26 @@
 const express = require('express');
 const router = express.Router();
 
-const auth = require('../../middleware/auth');
-const { check, validationResult } = require('express-validator');
-const checkObjectId = require('../../middleware/checkObjectId');
-
+// import models
 const Booking = require('../../models/Booking');
 const User = require('../../models/User');
+
+// import middleware
+const auth = require('../../middleware/auth');
+const checkObjectId = require('../../middleware/checkObjectId');
+const {
+	createBookingValidator,
+} = require('../../middleware/booking-validator');
+const { runValidation } = require('../../middleware/index-validator');
 
 // @route    POST api/bookings
 // @desc     Create a booking
 // @access   Private
 router.post(
 	'/',
-	[
-		auth,
-		[
-			check('appointmentDate', 'Appointment Date is Required').not().isEmpty(),
-			check('appointmentTime', 'Appointment Time is Required').not().isEmpty(),
-			check('appointmentDuration', 'Appointment Duration is Required')
-				.not()
-				.isEmpty(),
-			check('text', 'Text is required').not().isEmpty(),
-		],
-	],
+	auth,
+	createBookingValidator,
+	runValidation,
 	async (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {

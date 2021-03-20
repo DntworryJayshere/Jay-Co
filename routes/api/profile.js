@@ -1,13 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-const auth = require('../../middleware/auth');
-const { check, validationResult } = require('express-validator');
-const checkObjectId = require('../../middleware/checkObjectId');
-
+// import models
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 const Booking = require('../../models/Booking');
+
+// import middleware
+const auth = require('../../middleware/auth');
+const checkObjectId = require('../../middleware/checkObjectId');
+const {
+	createORupdateProfileValidator,
+} = require('../../middleware/profile-validator');
+const { runValidation } = require('../../middleware/index-validator');
 
 // @route    GET api/profile/me
 // @desc     Get current users profile
@@ -34,22 +39,9 @@ router.get('/me', auth, async (req, res) => {
 // @access   Private
 router.post(
 	'/',
-	[
-		auth,
-		[
-			check('dob', 'DOB is required').not().isEmpty(),
-			check('phone', 'PhoneNumber is required').not().isEmpty(),
-			check('address1', 'Address1 is required').not().isEmpty(),
-			check('city', 'City is required').not().isEmpty(),
-			check('statee', 'State is required').not().isEmpty(),
-			check('zip', 'Zip is required').not().isEmpty(),
-		],
-	],
+	createORupdateProfileValidator,
+	runValidation,
 	async (req, res) => {
-		const errors = validationResult(req);
-		if (!errors.isEmpty()) {
-			return res.status(400).json({ errors: errors.array() });
-		}
 		const { dob, phone, address1, address2, city, statee, zip } = req.body;
 
 		const profileFields = {
