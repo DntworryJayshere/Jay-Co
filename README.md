@@ -9,5 +9,5 @@ Inorder to view the full functionality/routing of the application please feel fr
 
 User: email: scalableapp.user@gmail.com | pw:123456
 
-**for approved, non-production email addresses.
+**for approved, non-production email addresses. 
 PLEASE DO NOT delete this account/profile as it will ruin the experience for other, and only delete bookings that YOU created previously. Thanks for looking!
