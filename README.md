@@ -8,6 +8,7 @@ From a technical perspective - jayco.cloud originated as a full-stack MongoDB At
 Inorder to view the full functionality/routing of the application please feel free to use the below User login information.
 
 User: email: scalableapp.user@gmail.com | pw:123456
+
 PLEASE DO NOT delete this account/profile as it will ruin the experience for other, and only delete bookings that YOU created previously. Thanks for looking!
 
 **for approved, non-production email addresses. 
