@@ -6,10 +6,6 @@ const profileSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: 'User',
 	},
-	dob: {
-		type: Date,
-		required: true,
-	},
 	phone: {
 		type: String,
 		required: true,

@@ -42,10 +42,6 @@
 		"moment-timezone": "^0.5.31",
 		"mongoose": "^5.11.18",
 		"morgan": "^1.10.0",
-		"react-bootstrap": "^1.5.1",
-		"react-modal": "^3.12.1",
-		"react-moment": "^1.1.1",
-		"react-reveal": "^1.2.2",
 		"request": "^2.88.2"
 	}
 }

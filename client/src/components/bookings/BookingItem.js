@@ -9,7 +9,7 @@ import 'moment-timezone';
 
 const BookingItem = ({
 	deleteBooking,
-	booking: { _id, text, appointmentDate, appointmentTime, appointmentDuration },
+	booking: { _id, appointmentDate, appointmentTime, appointmentDuration, text },
 }) => (
 	<Fragment>
 		<div className="contextBodyProfile">

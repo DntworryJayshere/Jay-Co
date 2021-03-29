@@ -7,7 +7,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const initialState = {
-	dob: '',
 	phone: '',
 	address1: '',
 	address2: '',
@@ -45,7 +44,7 @@ const ProfileForm = ({
 		}
 	}, [loading, getCurrentProfile, profile]);
 
-	const { dob, phone, address1, address2, city, statee, zip } = formData;
+	const { phone, address1, address2, city, statee, zip } = formData;
 
 	const onChange = (e) =>
 		setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -67,17 +66,6 @@ const ProfileForm = ({
 											<div className="col-lg-12">
 												<div className="p-5">
 													<Form onSubmit={onSubmit}>
-														<Form.Group controlId="dob">
-															<Form.Label>Date Of Birth*</Form.Label>
-															<Form.Control
-																type="Date"
-																name="dob"
-																value={dob}
-																onChange={onChange}
-																required
-															/>
-														</Form.Group>
-
 														<Form.Group controlId="phone">
 															<Form.Label>Phone Number*</Form.Label>
 															<Form.Control

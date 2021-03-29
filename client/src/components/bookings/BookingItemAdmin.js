@@ -13,10 +13,10 @@ const BookingItem = ({
 	deleteBookingAdmin,
 	booking: {
 		_id,
-		text,
 		appointmentDate,
 		appointmentTime,
 		appointmentDuration,
+		text,
 		name,
 		lastName,
 	},

@@ -1,24 +1,12 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Moment from 'react-moment';
-import moment from 'moment';
-import 'moment-timezone';
 
 const ProfileItem = ({
-	profile: { dob, phone, address1, address2, city, statee, zip },
+	profile: { phone, address1, address2, city, statee, zip },
 }) => {
 	return (
 		<Fragment>
-			<div className="contextBodyProfile">
-				Date of Birth:{' '}
-				<span>
-					<Moment format="MMM-D-YYYY">{moment.utc(dob)}</Moment>
-				</span>
-				<Link to="/edit-profile" className="editOption">
-					<p>Change DoB</p>
-				</Link>
-			</div>
 			<div className="contextBodyProfile">
 				Phone: <span>{phone}</span>
 				<Link to="/edit-profile" className="editOption">

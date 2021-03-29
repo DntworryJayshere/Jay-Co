@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Moment from 'react-moment';
-import moment from 'moment';
-import 'moment-timezone';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 const ProfileItemAdmin = ({
 	profile: {
 		user: { name, lastName, email },
-		dob,
 		phone,
 		address1,
 		address2,
@@ -27,12 +23,6 @@ const ProfileItemAdmin = ({
 				<ListGroup.Item>Email: {email}</ListGroup.Item>
 				<ListGroup.Item>
 					Phone: <span>{phone}</span>
-				</ListGroup.Item>
-				<ListGroup.Item>
-					Date of Birth:{' '}
-					<span>
-						<Moment format="MMM-D-YYYY">{moment.utc(dob)}</Moment>
-					</span>
 				</ListGroup.Item>
 				<ListGroup.Item>
 					Address1: <span>{address1}</span>

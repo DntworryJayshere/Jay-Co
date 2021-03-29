@@ -84,12 +84,6 @@ const Login = ({ login, isAuthenticated }) => {
 															</div>
 														</Form>
 														<br />
-
-														<div className="text-center">
-															<Link className="small" to="/samplePage">
-																Forgot Password?
-															</Link>
-														</div>
 														<div className="text-center">
 															<Link className="small" to="/register">
 																Create an Account!

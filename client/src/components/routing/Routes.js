@@ -38,7 +38,7 @@ const Routes = (props) => {
 				<PrivateRoute exact path="/dashboard" component={Dashboard} />
 
 				<PrivateRoute exact path="/create-profile" component={CreateProfile} />
-				<Route exact path="/edit-profile" component={EditProfile} />
+				<PrivateRoute exact path="/edit-profile" component={EditProfile} />
 
 				<PrivateRoute exact path="/create-booking" component={CreateBooking} />
 
