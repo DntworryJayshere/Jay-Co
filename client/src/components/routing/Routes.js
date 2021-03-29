@@ -11,6 +11,7 @@ import CreateBooking from '../pages/CreateBooking';
 import CreateProfile from '../pages/CreateProfile';
 import EditProfile from '../pages/EditProfile';
 
+import AboutPage from '../pages/AboutPage';
 import SamplePage from '../pages/SamplePage';
 import AdminPage from '../pages/AdminPage';
 import Err404 from '../pages/errors/404/404';
@@ -32,6 +33,7 @@ const Routes = (props) => {
 					path="/login"
 					component={(props) => <Login {...props} />}
 				/>
+				<Route exact path="/aboutPage" component={AboutPage} />
 				<Route exact path="/samplePage" component={SamplePage} />
 				<Route exact path="/adminPage" component={AdminPage} />
 

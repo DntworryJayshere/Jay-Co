@@ -65,8 +65,8 @@ const Footer = ({ setAlert, registerSubscriber }) => {
 					<div className="footer-link-wrapper">
 						<div className="footer-link-items">
 							<h2>About</h2>
+							<Link to="/aboutPage">How it Works</Link>
 							<Link to="/adminPage">Admin Page</Link>
-							<Link to="/samplePage">How it works</Link>
 							<Link to="/samplePage">Careers</Link>
 							<Link to="/samplePage">Terms of Service</Link>
 						</div>
