@@ -52,16 +52,14 @@ export const register = (formData) => async (dispatch) => {
 };
 
 // Register Subscriber
-export const registerSubscriber = (formData) => async (dispatch) => {
+export const registerSubscriber = (email) => async (dispatch) => {
 	try {
-		const res = await api.post('/subscribers', formData);
+		const res = await api.post('/subscribers', email);
 
 		dispatch({
 			type: REGISTER_SUBSCRIBER,
 			payload: res.data,
 		});
-
-		dispatch(setAlert('Subscribed', 'success'));
 	} catch (err) {
 		const errors = err.response.data.errors;
 

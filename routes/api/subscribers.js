@@ -14,11 +14,6 @@ const { runValidation } = require('../../middleware/index-validator');
 //@desc     Register new subscriber
 //@access   Public
 router.post('/', subscriberValidator, runValidation, async (req, res) => {
-	const errors = validationResult(req);
-	if (!errors.isEmpty()) {
-		//bad request of 400
-		return res.status(400).json({ errors: errors.array() });
-	}
 	const { email } = req.body;
 	try {
 		let subscriber = await Subscriber.findOne({ email });

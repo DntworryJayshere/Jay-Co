@@ -46,7 +46,7 @@ const Login = ({ login, isAuthenticated }) => {
 														</div>
 
 														<Form onSubmit={onSubmit}>
-															<Form.Group controlId="FirstName">
+															<Form.Group>
 																<Form.Label>Email Address</Form.Label>
 																<Form.Control
 																	className="form-control-user"
@@ -59,7 +59,7 @@ const Login = ({ login, isAuthenticated }) => {
 																/>
 															</Form.Group>
 
-															<Form.Group controlId="LastName">
+															<Form.Group>
 																<Form.Label>Password</Form.Label>
 																<Form.Control
 																	className="form-control-user"

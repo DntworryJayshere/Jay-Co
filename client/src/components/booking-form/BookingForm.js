@@ -27,6 +27,13 @@ const BookingForm = ({ addBooking }) => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		addBooking({ appointmentDate, appointmentTime, appointmentDuration, text });
+		setFormData({
+			...formData,
+			appointmentDate: '',
+			appointmentTime: '',
+			appointmentDuration: '',
+			text: '',
+		});
 	};
 
 	return (

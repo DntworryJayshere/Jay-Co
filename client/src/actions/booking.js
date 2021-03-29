@@ -108,7 +108,7 @@ export const addBooking = (formData) => async (dispatch) => {
 			payload: res.data,
 		});
 
-		dispatch(setAlert('Booking Created', 'success'));
+		dispatch(setAlert('Booking Created & Confirmation Email Sent', 'success'));
 	} catch (err) {
 		dispatch({
 			type: BOOKING_ERROR,
